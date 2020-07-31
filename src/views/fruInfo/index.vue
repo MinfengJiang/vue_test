@@ -81,7 +81,7 @@ export default {
           FRUNumber: '3634363533363',
           HWRevisionLevel: '3030333039383839623633303938c0',
           MfgDateTime: '02/10/2007 23:31:00',
-          POSID: 65535,
+          // POSID: 65535,
           POSIDExtention: 65535,
           PhysicalCharacteristics: '3030303030',
           SystemMAC1: '30:30:30:30:30:30',
