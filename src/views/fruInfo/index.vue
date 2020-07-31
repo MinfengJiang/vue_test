@@ -89,7 +89,7 @@ export default {
           SystemMAC3: '30:30:30:30:30:30',
           SystemMAC4: '30:33:31:35:30:34',
           Title: 'Board Information',
-          VPDID: 65535,
+          // VPDID: 65535,
           VPDType: 51
         }
       ]
