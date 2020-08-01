@@ -8,8 +8,7 @@
         </div>
       </el-col>
       <el-col :xs="2" :sm="2" :md="2" :lg="3" :xl="3">
-        <el-switch v-model="value" active-color="#3CC4C4">
-        </el-switch>
+        <el-switch v-model="value" active-color="#3CC4C4" />
       </el-col>
     </el-row>
   </div>

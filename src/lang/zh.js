@@ -2,6 +2,7 @@ export default {
   route: {
     dashboard: '首页',
     fruInfo: 'FRU信息',
+    FruInfoChild: '系统FRUs',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -195,6 +196,23 @@ export default {
     sysFruTitle: '机箱信息',
     sysFruTitle2: '主板信息',
     sysFruTitle3: '产品信息',
-    tableTitle: '标题'
+    tableTitle: '标题',
+    ChassisType: '机箱类型',
+    ChassisPartNumber: '机箱零件号',
+    ChassisSerial: '机箱序列号',
+    ChassisExtra: '机箱客户自定义',
+    BoardMfgDate: '制造日期时间',
+    BoardMfg: '主板制造商名称',
+    BoardProduct: '主板产品名称',
+    BoardSerial: '主板序列号',
+    BoardPartNumber: '主板零件号',
+    BoardExtra: '主板客户自定义',
+    ProductManufacturer: '产品制造商名称',
+    ProductName: '产品名称',
+    ProductPartNumber: '产品零件号',
+    ProductVersion: '产品版本号',
+    ProductSerial: '产品序列号',
+    ProductAssetTag: '产品资产标签',
+    ProductExtra: '产品客户自定义'
   }
 }

@@ -2,6 +2,7 @@ export default {
   route: {
     dashboard: 'Dashboard',
     fruInfo: 'FRU Information',
+    FruInfoChild: 'System FRUs',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -195,6 +196,23 @@ export default {
     sysFruTitle: 'Chassis Information',
     sysFruTitle2: 'Board Information',
     sysFruTitle3: 'Product Information',
-    tableTitle: 'Title'
+    tableTitle: 'Title',
+    'ChassisType': 'ChassisType',
+    'ChassisPartNumber': 'ChassisPartNumber',
+    'ChassisSerial': 'ChassisSerialNumber',
+    'ChassisExtra': 'ChassisCustomFields',
+    'BoardMfgDate': 'Mfg Date Time',
+    'BoardMfg': 'BoardManufactureName',
+    'BoardProduct': 'BoardProductName',
+    'BoardSerial': 'BoardSerialNumber',
+    'BoardPartNumber': 'BoardPartNumber',
+    'BoardExtra': 'BoardCustomFields',
+    'ProductManufacturer': 'ProductManufactureName',
+    'ProductName': 'ProductName',
+    'ProductPartNumber': 'ProductPartNumber',
+    'ProductVersion': 'ProductVersion',
+    'ProductSerial': 'ProductSerialNumber',
+    'ProductAssetTag': 'AssetTag',
+    'ProductExtra': 'ProductCustomFields'
   }
 }

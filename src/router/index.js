@@ -86,9 +86,18 @@ export const constantRoutes = [
   {
     path: '/fruInfo',
     component: Layout,
+    redirect: '/fruInfo/systemFruInfo',
+    name: 'FruInfo',
+    meta: { title: 'fruInfo', icon: 'fruInfo' },
     children: [
       {
         path: 'systemFruInfo',
+        component: () => import('@/views/fruInfo/index'),
+        name: 'FruInfoChild',
+        meta: { title: 'FruInfoChild', icon: 'fruInfo', noCache: true }
+      },
+      {
+        path: 'systemFruInfo2',
         component: () => import('@/views/fruInfo/index'),
         name: 'FruInfo',
         meta: { title: 'fruInfo', icon: 'fruInfo', noCache: true }

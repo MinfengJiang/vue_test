@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { transactionList } from '@/api/remote-search'
+// import { transactionList } from '@/api/remote-search'
 
 export default {
   filters: {
