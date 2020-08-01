@@ -87,36 +87,44 @@ export const constantRoutes = [
     path: '/fruInfo',
     component: Layout,
     redirect: '/fruInfo/systemFruInfo',
-    name: 'FruInfo',
+    name: 'fruInfo',
     meta: { title: 'fruInfo', icon: 'fruInfo' },
     children: [
       {
         path: 'systemFruInfo',
         component: () => import('@/views/fruInfo/index'),
-        name: 'FruInfoChild',
-        meta: { title: 'FruInfoChild', icon: 'fruInfo', noCache: true }
+        name: 'fruInfoChild',
+        meta: { title: 'fruInfoChild', noCache: true }
       },
       {
         path: 'systemFruInfo2',
         component: () => import('@/views/fruInfo/index'),
-        name: 'FruInfo',
-        meta: { title: 'fruInfo', icon: 'fruInfo', noCache: true }
+        name: 'fruInfoChild2',
+        meta: { title: 'fruInfo', noCache: true }
       }
     ]
   },
-
-  // {
-  //   path: '/fruInfo',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/fruInfo/index'),
-  //       name: 'Documentation',
-  //       meta: { title: 'fruInfo', icon: 'fruInfo', affix: true }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/deviceInfo',
+    component: Layout,
+    redirect: '/deviceInfo/systemDeviceInfo',
+    name: 'deviceInfo',
+    meta: { title: 'deviceInfo', icon: 'deviceInfo' },
+    children: [
+      {
+        path: 'systemDeviceInfo',
+        component: () => import('@/views/deviceInfo/deviceInfo'),
+        name: 'deviceInfoChild',
+        meta: { title: 'deviceInfoChild', noCache: true }
+      },
+      {
+        path: 'systemDeviceInfo2',
+        component: () => import('@/views/fruInfo/index'),
+        name: 'deviceInfoChild2',
+        meta: { title: 'deviceInfoChild', noCache: true }
+      }
+    ]
+  },
   {
     path: '/guide',
     component: Layout,

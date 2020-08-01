@@ -2,7 +2,9 @@ export default {
   route: {
     dashboard: '首页',
     fruInfo: 'FRU信息',
-    FruInfoChild: '系统FRUs',
+    fruInfoChild: '系统FRUs',
+    deviceInfo: '设备信息',
+    deviceInfoChild: '设备摘要信息',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -214,5 +216,14 @@ export default {
     ProductSerial: '产品序列号',
     ProductAssetTag: '产品资产标签',
     ProductExtra: '产品客户自定义'
+  },
+  deviceInfo: {
+    deviceTitle: '设备摘要信息',
+    typeName: '类型名',
+    number: '编号',
+    status: '状态',
+    detail: '详细信息',
+    present: '在位',
+    absent: '不在位'
   }
 }

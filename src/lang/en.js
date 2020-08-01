@@ -214,5 +214,14 @@ export default {
     'ProductSerial': 'ProductSerialNumber',
     'ProductAssetTag': 'AssetTag',
     'ProductExtra': 'ProductCustomFields'
+  },
+  deviceInfo: {
+    deviceTitle: 'Device Summary Information',
+    typeName: 'Type Name',
+    number: 'Number',
+    status: 'Status',
+    detail: 'Detail',
+    present: 'Present',
+    absent: 'Absent'
   }
 }
