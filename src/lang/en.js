@@ -3,6 +3,9 @@ export default {
     dashboard: 'Dashboard',
     fruInfo: 'FRU Information',
     FruInfoChild: 'System FRUs',
+    deviceInfo: 'Device Info',
+    deviceInfoChild: 'Device Summary Info',
+    hddInfoChild: 'HDD Status Info',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -216,11 +219,12 @@ export default {
     'ProductExtra': 'ProductCustomFields'
   },
   deviceInfo: {
-    deviceTitle: 'Device Summary Information',
-    typeName: 'Type Name',
-    number: 'Number',
-    status: 'Status',
-    detail: 'Detail',
+    hddTitle: 'HDD Status Information',
+    hddBack: 'HDD Backplane',
+    hddSlot: 'HDD Slot',
+    hddType: 'HDD Type',
+    hddPresent:	'HDD Present',
+    hddError: 'HDD Error',
     present: 'Present',
     absent: 'Absent'
   }

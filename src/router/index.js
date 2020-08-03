@@ -118,10 +118,10 @@ export const constantRoutes = [
         meta: { title: 'deviceInfoChild', noCache: true }
       },
       {
-        path: 'systemDeviceInfo2',
-        component: () => import('@/views/fruInfo/index'),
-        name: 'deviceInfoChild2',
-        meta: { title: 'deviceInfoChild', noCache: true }
+        path: 'hddInfo',
+        component: () => import('@/views/deviceInfo/hddInfo'),
+        name: 'hddInfoChild',
+        meta: { title: 'hddInfoChild', noCache: true }
       }
     ]
   },

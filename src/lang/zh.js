@@ -5,6 +5,7 @@ export default {
     fruInfoChild: '系统FRUs',
     deviceInfo: '设备信息',
     deviceInfoChild: '设备摘要信息',
+    hddInfoChild: '硬盘状态信息',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -223,6 +224,16 @@ export default {
     number: '编号',
     status: '状态',
     detail: '详细信息',
+    present: '在位',
+    absent: '不在位'
+  },
+  hddInfo: {
+    hddTitle: '硬盘状态信息',
+    hddBack: '硬盘背板',
+    hddSlot: '硬盘插槽',
+    hddType: '硬盘类型',
+    hddPresent:	'硬盘在位',
+    hddError: '硬盘错误',
     present: '在位',
     absent: '不在位'
   }
