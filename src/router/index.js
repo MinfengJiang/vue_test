@@ -126,6 +126,27 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/serverHealth',
+    component: Layout,
+    redirect: '/serverHealth/sensorReading',
+    name: 'serverHealth',
+    meta: { title: 'serverHealth', icon: 'serverHealth' },
+    children: [
+      {
+        path: 'sensorReading',
+        component: () => import('@/views/serverHealth/sensorReading'),
+        name: 'sensorReadingChild',
+        meta: { title: 'sensorReadingChild', noCache: true }
+      },
+      {
+        path: 'hddInfo',
+        component: () => import('@/views/deviceInfo/hddInfo'),
+        name: 'hddInfoChild',
+        meta: { title: 'hddInfoChild', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',
