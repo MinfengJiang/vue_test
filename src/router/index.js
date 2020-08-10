@@ -149,6 +149,12 @@ export const constantRoutes = [
         component: () => import('@/views/serverHealth/auditLog'),
         name: 'auditLogChild',
         meta: { title: 'auditLogChild', noCache: true }
+      },
+      {
+        path: 'deviceChangeLog',
+        component: () => import('@/views/serverHealth/deviceChangeLog'),
+        name: 'deviceChangeLogChild',
+        meta: { title: 'deviceChangeLogChild', noCache: true }
       }
     ]
   },
