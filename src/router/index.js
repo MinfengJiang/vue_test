@@ -155,6 +155,12 @@ export const constantRoutes = [
         component: () => import('@/views/serverHealth/deviceChangeLog'),
         name: 'deviceChangeLogChild',
         meta: { title: 'deviceChangeLogChild', noCache: true }
+      },
+      {
+        path: 'systemPostCode',
+        component: () => import('@/views/serverHealth/systemPostCode'),
+        name: 'systemPostCodeChild',
+        meta: { title: 'systemPostCodeChild', noCache: true }
       }
     ]
   },

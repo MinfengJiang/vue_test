@@ -11,6 +11,7 @@ export default {
     eventLogChild: '事件日志',
     auditLogChild: '审核日志',
     deviceChangeLogChild: '设备更换日志',
+    systemPostCodeChild: '系统开机自检代码',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -695,5 +696,10 @@ export default {
     Client_ip: '客户端IP',
     Operation: '操作',
     Time: '时间'
+  },
+  systemPostCode: {
+    systemPostCodeTitle: '系统开机自检代码',
+    currentPostCode: '当前开机自检代码',
+    postCodeHistory: '开机自检代码历史记录'
   }
 }

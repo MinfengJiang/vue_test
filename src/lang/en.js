@@ -11,6 +11,7 @@ export default {
     eventLogChild: 'Event Log',
     auditLogChild: 'Audit Log',
     deviceChangeLogChild: 'Device Change Log',
+    systemPostCodeChild: 'System Post Code',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -697,5 +698,10 @@ export default {
     Client_ip: 'Client IP',
     Operation: 'Operation',
     Time: 'Time'
+  },
+  systemPostCode: {
+    systemPostCodeTitle: 'System Post Code',
+    currentPostCode: 'Current Post Code',
+    postCodeHistory: 'Post Code History'
   }
 }
