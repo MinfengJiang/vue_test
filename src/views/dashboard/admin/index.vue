@@ -59,6 +59,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media screen and (max-width: 465px) {
+  .dashboard-editor-container {
+    padding: 0 !important;
+  }
+}
   .dashboard-editor-container {
     padding: 32px;
     background-color: rgb(240, 242, 245);

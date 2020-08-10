@@ -92,6 +92,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media screen and (max-width: 465px) {
+  .app-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding: 0;
+  }
+}
 .app-container {
   position: absolute;
   height: 100%;

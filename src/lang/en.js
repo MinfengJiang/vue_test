@@ -8,6 +8,7 @@ export default {
     hddInfoChild: 'HDD Status Info',
     serverHealth: 'Server Health',
     sensorReadingChild: 'Sensor Readings',
+    eventLogChild: 'Event Log',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -655,5 +656,21 @@ export default {
     'Session Audit': 'Session Audit',
     'Version Change': 'Version Change',
     'FRU State': 'FRU State'
+  },
+  eventLog: {
+    eventLogTitle: 'Event Log',
+    btn1: 'Reload',
+    btn2: 'Clean Logs',
+    btn3: 'Export Logs',
+    Num: 'ID',
+    Owner: 'Owner',
+    WarningLevel: 'Warning Level',
+    Time: 'Time',
+    Name: 'Name',
+    Type: 'Type',
+    Description: 'Description',
+    Info: 'Info',
+    Warning: 'Warning',
+    Error: 'Error'
   }
 }

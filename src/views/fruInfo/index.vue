@@ -106,6 +106,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media screen and (max-width: 465px) {
+  .app-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding: 0;
+  }
+}
 .el-row {
   margin-bottom: 30px;
   background-color: rgb(240, 242, 245);

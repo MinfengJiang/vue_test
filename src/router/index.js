@@ -139,10 +139,10 @@ export const constantRoutes = [
         meta: { title: 'sensorReadingChild', noCache: true }
       },
       {
-        path: 'hddInfo',
-        component: () => import('@/views/deviceInfo/hddInfo'),
-        name: 'hddInfoChild',
-        meta: { title: 'hddInfoChild', noCache: true }
+        path: 'eventLog',
+        component: () => import('@/views/serverHealth/eventLog'),
+        name: 'eventLogChild',
+        meta: { title: 'eventLogChild', noCache: true }
       }
     ]
   },

@@ -8,6 +8,7 @@ export default {
     hddInfoChild: '硬盘状态信息',
     serverHealth: '服务器健康',
     sensorReadingChild: '传感器读数',
+    eventLogChild: '事件日志',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -653,5 +654,21 @@ export default {
     'Session Audit': '会话审计',
     'Version Change': '版本改变',
     'FRU State': 'FRU状态'
+  },
+  eventLog: {
+    eventLogTitle: '事件日志',
+    btn1: '重新载入',
+    btn2: '清理日志',
+    btn3: '导出日志',
+    Num: 'ID',
+    Owner: '所有者',
+    WarningLevel: '警告级别',
+    Time: '时间',
+    Name: '名称',
+    Type: '类型',
+    Description: '描述',
+    Info: '信息',
+    Warning: '警告',
+    Error: '严重'
   }
 }
