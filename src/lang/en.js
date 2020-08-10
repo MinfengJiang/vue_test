@@ -9,6 +9,7 @@ export default {
     serverHealth: 'Server Health',
     sensorReadingChild: 'Sensor Readings',
     eventLogChild: 'Event Log',
+    auditLogChild: 'Audit Log',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -672,5 +673,17 @@ export default {
     Info: 'Info',
     Warning: 'Warning',
     Error: 'Error'
+  },
+  auditLog: {
+    auditLogTitle: 'Audit Log',
+    btn1: 'Export Logs',
+    btn2: 'Clean Logs',
+    Num: 'ID',
+    Hostname: 'HostName',
+    UserName: 'UserName',
+    ServiceName: 'ServiceName',
+    Client_ip: 'Client IP',
+    Operation: 'Operation',
+    Time: 'Time'
   }
 }

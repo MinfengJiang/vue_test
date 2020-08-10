@@ -9,6 +9,7 @@ export default {
     serverHealth: '服务器健康',
     sensorReadingChild: '传感器读数',
     eventLogChild: '事件日志',
+    auditLogChild: '审核日志',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -670,5 +671,17 @@ export default {
     Info: '信息',
     Warning: '警告',
     Error: '严重'
+  },
+  auditLog: {
+    auditLogTitle: '审核日志',
+    btn1: '导出日志',
+    btn2: '清理日志',
+    Num: 'ID',
+    Hostname: '主机名',
+    UserName: '用户名',
+    ServiceName: '服务名称',
+    Client_ip: '客户端IP',
+    Operation: '操作',
+    Time: '时间'
   }
 }
