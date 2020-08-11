@@ -92,13 +92,13 @@ export const constantRoutes = [
     children: [
       {
         path: 'systemFruInfo',
-        component: () => import('@/views/fruInfo/index'),
+        component: () => import('@/views/fruInfo/fruInfo'),
         name: 'fruInfoChild',
         meta: { title: 'fruInfoChild', noCache: true }
       },
       {
         path: 'systemFruInfo2',
-        component: () => import('@/views/fruInfo/index'),
+        component: () => import('@/views/fruInfo/fruInfo'),
         name: 'fruInfoChild2',
         meta: { title: 'fruInfo', noCache: true }
       }
@@ -161,6 +161,27 @@ export const constantRoutes = [
         component: () => import('@/views/serverHealth/systemPostCode'),
         name: 'systemPostCodeChild',
         meta: { title: 'systemPostCodeChild', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/thermalManage',
+    component: Layout,
+    redirect: '/thermalManage/fanTachControl',
+    name: 'thermalManage',
+    meta: { title: 'thermalManage', icon: 'thermalManage' },
+    children: [
+      {
+        path: 'fanTachControl',
+        component: () => import('@/views/thermalManage/fanTachControl'),
+        name: 'fanTachControlChild',
+        meta: { title: 'fanTachControlChild', noCache: true }
+      },
+      {
+        path: 'systemFruInfo2',
+        component: () => import('@/views/fruInfo/fruInfo'),
+        name: 'fruInfoChild2',
+        meta: { title: 'fruInfo', noCache: true }
       }
     ]
   },

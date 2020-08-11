@@ -12,6 +12,8 @@ export default {
     auditLogChild: 'Audit Log',
     deviceChangeLogChild: 'Device Change Log',
     systemPostCodeChild: 'System Post Code',
+    thermalManage: 'Thermal Manage',
+    fanTachControlChild: 'Fan Tach Control',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -703,5 +705,23 @@ export default {
     systemPostCodeTitle: 'System Post Code',
     currentPostCode: 'Current Post Code',
     postCodeHistory: 'Post Code History'
+  },
+  fanTachControl: {
+    fanTachControlTitle: 'Fan Information',
+    ID: 'ID',
+    status: 'Status',
+    speed: 'Speed (RPM)',
+    cycle: 'Duty Cycle (%)',
+    success: 'Normal',
+    error: 'Abnormal',
+    info: 'Inactive',
+    fanTachControlTitle2: 'Speed Control',
+    manual: 'Manually Fan Control',
+    auto: 'Automatic Fan Control',
+    pwmId: 'PWM ID',
+    speedControl: 'Speed Control (%)',
+    fanControl: 'Fan Control',
+    placeholder: 'Enter 20~100',
+    submit: 'Submit'
   }
 }

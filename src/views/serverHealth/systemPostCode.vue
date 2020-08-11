@@ -37,7 +37,6 @@ export default {
   methods: {
     getList() {
       this.list[0] = this.data
-      console.log(this.list)
     }
   }
 }

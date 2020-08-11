@@ -12,6 +12,8 @@ export default {
     auditLogChild: '审核日志',
     deviceChangeLogChild: '设备更换日志',
     systemPostCodeChild: '系统开机自检代码',
+    thermalManage: '散热管理',
+    fanTachControlChild: '风扇转速控制',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -701,5 +703,23 @@ export default {
     systemPostCodeTitle: '系统开机自检代码',
     currentPostCode: '当前开机自检代码',
     postCodeHistory: '开机自检代码历史记录'
+  },
+  fanTachControl: {
+    fanTachControlTitle: '风扇信息',
+    ID: 'ID',
+    status: '状态',
+    speed: '当前转速 (RPM)',
+    cycle: '占空比 (%)',
+    success: '正常',
+    error: '异常',
+    info: '暂时不可用',
+    fanTachControlTitle2: '转速控制',
+    manual: '手动控制风扇',
+    auto: '自动控制风扇',
+    pwmId: 'PWM ID',
+    speedControl: '转速控制 (%)',
+    fanControl: '控制风扇',
+    placeholder: '输入20~100',
+    submit: '提交'
   }
 }
