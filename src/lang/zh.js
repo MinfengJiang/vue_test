@@ -15,6 +15,7 @@ export default {
     thermalManage: '散热管理',
     fanTachControlChild: '风扇转速控制',
     fanPolicyUpdateChild: '风扇策略更新',
+    firmwareUpdate: '固件更新',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -734,5 +735,14 @@ export default {
     return: '重新选择文件',
     loading: '上传文件中，请稍候...',
     removeTip: '确定移除'
+  },
+  firmwareUpdate: {
+    BIOSTitle: 'BIOS固件更新',
+    BMCTitle: 'BMC固件更新',
+    BackupBMCTitle: '备用BMC固件更新',
+    CPLDTitle: 'CPLD固件更新',
+    BIOSUploadTip: '文件类型必须为 .bin，并且文件大小上限为 8MB',
+    BMCUploadTip: '文件类型必须为 .tar，并且文件大小上限为 64MB',
+    CPLDUploadTip: '文件类型必须为 .aje，并且文件大小上限为 1MB'
   }
 }

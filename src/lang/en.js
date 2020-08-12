@@ -15,6 +15,7 @@ export default {
     thermalManage: 'Thermal Manage',
     fanTachControlChild: 'Fan Tach Control',
     fanPolicyUpdateChild: 'FSC Policy Update',
+    firmwareUpdate: 'Firmware Update',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -736,5 +737,14 @@ export default {
     return: 'Reselect File',
     loading: 'Uploading File, Please Wait...',
     removeTip: 'Are you sure to remove'
+  },
+  firmwareUpdate: {
+    BIOSTitle: 'Flash BIOS Firmware',
+    BMCTitle: 'Flash BMC FirmwareFlash',
+    BackupBMCTitle: 'Flash Backup BMC FirmwareFlash',
+    CPLDTitle: 'Flash CPLD Firmware',
+    BIOSUploadTip: 'The file type must be .bin and the maximum file size is 8MB',
+    BMCUploadTip: 'The file type must be .tar and the maximum file size is 64MB',
+    CPLDUploadTip: 'The file type must be .aje and the maximum file size is 1MB'
   }
 }

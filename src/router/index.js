@@ -186,6 +186,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/firmwareUpdate',
+    component: Layout,
+    redirect: '/firmwareUpdate',
+    children: [
+      {
+        path: '/firmwareUpdate',
+        component: () => import('@/views/firmwareUpdate/index'),
+        name: 'firmwareUpdate',
+        meta: { title: 'firmwareUpdate', icon: 'firmwareUpdate', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',
