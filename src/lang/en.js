@@ -14,6 +14,7 @@ export default {
     systemPostCodeChild: 'System Post Code',
     thermalManage: 'Thermal Manage',
     fanTachControlChild: 'Fan Tach Control',
+    fanPolicyUpdateChild: 'FSC Policy Update',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -723,5 +724,17 @@ export default {
     fanControl: 'Fan Control',
     placeholder: 'Enter 20~100',
     submit: 'Submit'
+  },
+  fanPolicyUpdate: {
+    fanPolicyUpdateTitle: 'FSC Policy Update',
+    uploadTip: 'Only files with the file name FSC_temp.dat can be uploaded',
+    step1: 'Select File',
+    step2: 'Upload File',
+    step3: 'Update Strategy',
+    success: 'Update Completed',
+    error: 'Update Failed',
+    return: 'Reselect File',
+    loading: 'Uploading File, Please Wait...',
+    removeTip: 'Are you sure to remove'
   }
 }

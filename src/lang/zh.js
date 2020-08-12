@@ -14,6 +14,7 @@ export default {
     systemPostCodeChild: '系统开机自检代码',
     thermalManage: '散热管理',
     fanTachControlChild: '风扇转速控制',
+    fanPolicyUpdateChild: '风扇策略更新',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -721,5 +722,17 @@ export default {
     fanControl: '控制风扇',
     placeholder: '输入20~100',
     submit: '提交'
+  },
+  fanPolicyUpdate: {
+    fanPolicyUpdateTitle: '风扇策略更新',
+    uploadTip: '只能上传文件名为 FSC_temp.dat 的文件',
+    step1: '选择文件',
+    step2: '上传文件',
+    step3: '更新策略',
+    success: '更新成功',
+    error: '更新失败',
+    return: '重新选择文件',
+    loading: '上传文件中，请稍候...',
+    removeTip: '确定移除'
   }
 }

@@ -178,10 +178,10 @@ export const constantRoutes = [
         meta: { title: 'fanTachControlChild', noCache: true }
       },
       {
-        path: 'systemFruInfo2',
-        component: () => import('@/views/fruInfo/fruInfo'),
-        name: 'fruInfoChild2',
-        meta: { title: 'fruInfo', noCache: true }
+        path: 'fanPolicyUpdate',
+        component: () => import('@/views/thermalManage/fanPolicyUpdate'),
+        name: 'fanPolicyUpdateChild',
+        meta: { title: 'fanPolicyUpdateChild', noCache: true }
       }
     ]
   },
