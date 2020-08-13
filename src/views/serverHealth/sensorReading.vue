@@ -196,7 +196,7 @@ export default {
   display: flex;
   span {
     /*padding-left: 12px;*/
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     flex: 5;
     // height: 36px;

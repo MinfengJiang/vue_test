@@ -66,7 +66,7 @@ export default {
   display: inline-block;
   span {
     /*padding-left: 12px;*/
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
   }
 }

@@ -764,7 +764,7 @@ export default {
     trapSetting: 'Trap Settings',
     sessionManage: 'Session Manage',
     ipAccessControl: 'IP Access Control',
-    bootOptionSetting: 'Boot Settings',
+    bootOptionSetting: 'Boot Option Settings',
     dualMirrorSetting: 'Dual Mirror Settings'
   }
 }

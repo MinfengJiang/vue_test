@@ -119,12 +119,12 @@ export default {
 .infoBoxHeader {
   display: inline-block;
   span {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
   }
 }
 .configBox {
-  margin: 15px 0 0 10px;
+  margin: 25px 0 0 13px;
   *zoom: 1; // IE6清除浮动
 }
  // 清除浮动
@@ -137,30 +137,34 @@ export default {
 }
 .configItem {
   float: left;
-  width: 138px;
-  height: 60px;
-  line-height: 22px;
-  background-color: rgb(228, 228, 228);
-  border-radius: 8px;
+  width: 145px;
+  height: 70px;
+  line-height: 15px;
+  background-color: rgb(221, 221, 221);
+  border-radius: 12px;
   text-align: center;
-  padding-top: 6px;
+  padding: 5px;
   color: #555;
-  border: 1px solid rgb(218, 218, 218);
-  margin: 0 23px 25px 0;
+  // border: 1px solid rgb(194, 194, 194, 0.7);
+  margin: 0 28px 32px 15px;
   cursor: pointer;
   .svg-icon[data-v-c8a70580] {
-    width: 1.3em;
-    height: 1.3em;
+    margin-top: 5px;
+    width: 1.4em;
+    height: 1.4em;
 }
   p {
     margin-block-start: 0;
     margin-block-end: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
+    // line-height: 15px;
+    margin-top: 10px;
   }
 }
 .configItem:hover {
-  background-color: rgb(217, 247, 255);
-  border: 1px solid rgb(232, 232, 232);
+  background-color: rgb(240, 240, 240);
+  border: 2px solid rgb(240, 240, 240);
+  color: #333;
 }
 </style>
