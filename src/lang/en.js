@@ -16,6 +16,7 @@ export default {
     fanTachControlChild: 'Fan Tach Control',
     fanPolicyUpdateChild: 'FSC Policy Update',
     firmwareUpdate: 'Firmware Update',
+    configuration: 'Configuration',
     documentation: 'Documentation',
     guide: 'Guide',
     permission: 'Permission',
@@ -746,5 +747,24 @@ export default {
     BIOSUploadTip: 'The file type must be .bin and the maximum file size is 8MB',
     BMCUploadTip: 'The file type must be .tar and the maximum file size is 64MB',
     CPLDUploadTip: 'The file type must be .aje and the maximum file size is 1MB'
+  },
+  configuration: {
+    configurationTitle: 'Configuration',
+    userManage: 'User Manage',
+    networkSetting: 'Network Settings',
+    timeSetting: 'Date & Time',
+    ntpSetting: 'NTP Settings',
+    serivceManage: 'Serivce',
+    ldapSetting: 'LDAP/AD',
+    smtpSetting: 'SMTP Settings',
+    restore: 'Save & Restore',
+    powerOnMode: 'Power On Recovery',
+    powerCapping: 'Power Capping',
+    snmpSetting: 'SNMP Settings',
+    trapSetting: 'Trap Settings',
+    sessionManage: 'Session Manage',
+    ipAccessControl: 'IP Access Control',
+    bootOptionSetting: 'Boot Settings',
+    dualMirrorSetting: 'Dual Mirror Settings'
   }
 }

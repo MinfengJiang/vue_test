@@ -16,6 +16,7 @@ export default {
     fanTachControlChild: '风扇转速控制',
     fanPolicyUpdateChild: '风扇策略更新',
     firmwareUpdate: '固件更新',
+    configuration: '配置',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -744,5 +745,24 @@ export default {
     BIOSUploadTip: '文件类型必须为 .bin，并且文件大小上限为 8MB',
     BMCUploadTip: '文件类型必须为 .tar，并且文件大小上限为 64MB',
     CPLDUploadTip: '文件类型必须为 .aje，并且文件大小上限为 1MB'
+  },
+  configuration: {
+    configurationTitle: '配置',
+    userManage: '用户管理',
+    networkSetting: '网络设置',
+    timeSetting: '日期 & 时间',
+    ntpSetting: 'NTP 设置',
+    serivceManage: '服 务',
+    ldapSetting: 'LDAP/AD',
+    smtpSetting: 'SMTP 设置',
+    restore: '保存 & 恢复',
+    powerOnMode: '上电恢复',
+    powerCapping: '用电控制',
+    snmpSetting: 'SNMP 设置',
+    trapSetting: 'Trap 设置',
+    sessionManage: '会话管理',
+    ipAccessControl: 'IP访问控制',
+    bootOptionSetting: '启动设置',
+    dualMirrorSetting: '双镜像设置'
   }
 }

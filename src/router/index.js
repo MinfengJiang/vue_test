@@ -186,6 +186,90 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/configuration',
+    component: Layout,
+    redirect: '/configuration',
+    children: [
+      {
+        path: '/configuration',
+        component: () => import('@/views/configuration/index'),
+        name: 'configuration',
+        meta: { title: 'configuration', icon: 'el-icon-setting', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/configuration/userManage',
+        component: () => import('@/views/configuration/components/userManage')
+      },
+      {
+        path: '/configuration/networkSetting',
+        component: () => import('@/views/configuration/components/networkSetting')
+      },
+      {
+        path: '/configuration/timeSetting',
+        component: () => import('@/views/configuration/components/timeSetting')
+      },
+      {
+        path: '/configuration/ntpSetting',
+        component: () => import('@/views/configuration/components/ntpSetting')
+      },
+      {
+        path: '/configuration/serivceManage',
+        component: () => import('@/views/configuration/components/serivceManage')
+      },
+      {
+        path: '/configuration/ldapSetting',
+        component: () => import('@/views/configuration/components/ldapSetting')
+      },
+      {
+        path: '/configuration/smtpSetting',
+        component: () => import('@/views/configuration/components/smtpSetting')
+      },
+      {
+        path: '/configuration/restore',
+        component: () => import('@/views/configuration/components/restore')
+      },
+      {
+        path: '/configuration/powerOnMode',
+        component: () => import('@/views/configuration/components/powerOnMode')
+      },
+      {
+        path: '/configuration/powerCapping',
+        component: () => import('@/views/configuration/components/powerCapping')
+      },
+      {
+        path: '/configuration/snmpSetting',
+        component: () => import('@/views/configuration/components/snmpSetting')
+      },
+      {
+        path: '/configuration/trapSetting',
+        component: () => import('@/views/configuration/components/trapSetting')
+      },
+      {
+        path: '/configuration/sessionManage',
+        component: () => import('@/views/configuration/components/sessionManage')
+      },
+      {
+        path: '/configuration/ipAccessControl',
+        component: () => import('@/views/configuration/components/ipAccessControl')
+      },
+      {
+        path: '/configuration/bootOptionSetting',
+        component: () => import('@/views/configuration/components/bootOptionSetting')
+      },
+      {
+        path: '/configuration/dualMirrorSetting',
+        component: () => import('@/views/configuration/components/dualMirrorSetting')
+      }
+    ]
+  },
+  {
     path: '/firmwareUpdate',
     component: Layout,
     redirect: '/firmwareUpdate',
