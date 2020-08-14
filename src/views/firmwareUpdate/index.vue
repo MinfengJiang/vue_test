@@ -41,10 +41,11 @@ export default {
   }
 }
 .app-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-  }
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
 .el-row{
   margin-bottom: 30px;
   background-color: rgb(240, 242, 245);

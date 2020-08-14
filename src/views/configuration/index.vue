@@ -6,8 +6,8 @@
           <span>{{ $t('configuration.configurationTitle') }}</span>
         </div> -->
         <div class="configBox">
-          <div v-for="item in configList" :key="item.id" class="configItem">
-            <router-link :to="`/configuration/${item.name}`">
+          <div v-for="item in configList" :key="item.id">
+            <router-link :to="`/configuration/${item.name}`" class="configItem">
               <svg-icon :icon-class="item.name" />
               <p>{{ $t(`configuration.${item.name}`) }}</p>
             </router-link>
