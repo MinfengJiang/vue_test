@@ -274,9 +274,7 @@ export default {
         pwd_change_cycle: 11650,
         usr_privilege: 1
       },
-      checked: false,
       action: '',
-      vaildClean: '',
       formRules: {
         user_name: [
           { required: true, validator: validateUserName, trigger: 'change' }
