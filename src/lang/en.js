@@ -852,7 +852,8 @@ export default {
       vlanIDPlaceholder: 'Please enter VLAN ID',
       vlanPriority: 'VLAN Priority',
       vlanPriorityPlaceholder: 'Please enter VLAN priority',
-      confirmBtn: 'Submit'
+      confirmBtn: 'Submit',
+      comfirmMsg: 'Change network setting may close all WEB sessions, you need login WEB again. Do you want to continue?'
     },
     timeSettingConfig: {
       timeSettingConfigTitle: 'Date & Time',
@@ -863,6 +864,14 @@ export default {
       comfirmMsg: 'Modifying the date and time may cause BMC web session expired. Do you want to continue?',
       successMsg: 'Modified successfully!',
       cancelMsg: 'Edit cancelled'
+    },
+    ntpSettingConfig: {
+      ntpSettingConfigTitle: 'NTP Settings',
+      enable: 'Enable',
+      OEM: 'OEM',
+      ntpServer: 'NTP Server',
+      ntpServerPlaceholder: 'Please enter NTP server',
+      comfirmMsg: 'Sync NTP the date and time may cause BMC web session expired. Do you want to continue?'
     }
   }
 }

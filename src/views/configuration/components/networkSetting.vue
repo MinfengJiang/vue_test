@@ -199,7 +199,27 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log(this.formData)
+      this.$confirm(this.$t('configuration.networkSettingConfig.comfirmMsg'), this.$t('configuration.userManageConfig.comfirmTitle'), {
+        confirmButtonText: this.$t('configuration.userManageConfig.confirmButtonText'),
+        cancelButtonText: this.$t('configuration.userManageConfig.cancelButtonText'),
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          duration: '1000',
+          message: this.$t('configuration.timeSettingConfig.successMsg')
+        })
+        // console.log(111, this.formData)
+        setTimeout(async() => {
+          await this.$store.dispatch('user/logout')
+          this.$router.push('/login?redirect=dashboard')
+        }, 1200)
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: this.$t('configuration.timeSettingConfig.cancelMsg')
+        })
+      })
     }
   }
 }
@@ -286,8 +306,5 @@ export default {
   .el-input--suffix .el-input__inner {
     padding-right: 75px;
   }
-  // .el-select {
-  //   width: 100%;
-  // }
 }
 </style>

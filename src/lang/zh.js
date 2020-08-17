@@ -850,7 +850,8 @@ export default {
       vlanIDPlaceholder: '请输入 VLAN ID',
       vlanPriority: 'VLAN 优先级',
       vlanPriorityPlaceholder: '请输入 VLAN 优先级',
-      confirmBtn: '提 交'
+      confirmBtn: '提 交',
+      comfirmMsg: '修改网络设置可能会导致所有的会话失效，需要重新登录网页，请确认是否继续?'
     },
     timeSettingConfig: {
       timeSettingConfigTitle: '日期 & 时间',
@@ -858,9 +859,17 @@ export default {
       timePlaceholder: '请选择日期 & 时间',
       timeZone: '时区',
       timeZonePlaceholder: '请选择时区',
-      comfirmMsg: '修改BMC时间/日期可能会导致网页会话结束，请问是否继续？',
+      comfirmMsg: '修改 BMC 时间 / 日期可能会导致网页会话结束，请问是否继续？',
       successMsg: '修改成功！',
       cancelMsg: '已取消修改'
+    },
+    ntpSettingConfig: {
+      ntpSettingConfigTitle: 'NTP 设置',
+      enable: '启用',
+      OEM: 'OEM',
+      ntpServer: 'NTP 服务器',
+      ntpServerPlaceholder: '请输入 NTP 服务器',
+      comfirmMsg: '同步 NTP 时间 / 日期可能会导致网页会话结束，请问是否继续？'
     }
   }
 }
