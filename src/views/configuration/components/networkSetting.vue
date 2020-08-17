@@ -251,8 +251,8 @@ export default {
   }
 }
 .el-switch {
-    display: inline-block !important;
-    margin-left: 40px;
+  display: inline-block !important;
+  margin-left: 40px;
 }
 .submitForm {
   padding: 15px 15px 30px 15px;
@@ -283,8 +283,11 @@ export default {
     max-width: 250px;
     // min-width: 200px !important;
   }
-  .el-select {
-    width: 100%;
+  .el-input--suffix .el-input__inner {
+    padding-right: 75px;
   }
+  // .el-select {
+  //   width: 100%;
+  // }
 }
 </style>

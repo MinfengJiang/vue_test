@@ -853,6 +853,16 @@ export default {
       vlanPriority: 'VLAN Priority',
       vlanPriorityPlaceholder: 'Please enter VLAN priority',
       confirmBtn: 'Submit'
+    },
+    timeSettingConfig: {
+      timeSettingConfigTitle: 'Date & Time',
+      currentTime: 'Current Time',
+      timePlaceholder: 'select Date & Time',
+      timeZone: 'Time Zone',
+      timeZonePlaceholder: 'Please select time zone',
+      comfirmMsg: 'Modifying the date and time may cause BMC web session expired. Do you want to continue?',
+      successMsg: 'Modified successfully!',
+      cancelMsg: 'Edit cancelled'
     }
   }
 }

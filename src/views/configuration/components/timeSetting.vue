@@ -3,47 +3,40 @@
     <el-row>
       <div class="infoBox">
         <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle') }}</span>
+          <span>{{ $t('configuration.timeSettingConfig.timeSettingConfigTitle') }}</span>
         </div>
-        <el-table :data="newObj.list0" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
+        <div>
+          <div class="labelBox">
+            <div class="labelLeft">{{ $t('configuration.timeSettingConfig.currentTime') }}</div>
+            <div class="labelRight">{{ currentTime }}</div>
+          </div>
+          <div class="labelBox">
+            <div class="labelLeft">{{ $t('configuration.timeSettingConfig.timeZone') }}</div>
+            <div class="labelRight">
+              <el-select v-model="list.UtcOffset" popper-class="select-popper" :placeholder="$t('configuration.timeSettingConfig.timeZonePlaceholder')">
+                <el-option v-for="item in utcOffsetList" :key="item.value" :label="item.name" :value="item.value" />
+              </el-select>
+            </div>
+          </div>
+          <div class="labelBox">
+            <div class="labelLeft">{{ $t('configuration.timeSettingConfig.timeSettingConfigTitle') }}</div>
+            <div class="labelRight">
+              <el-date-picker
+                v-model="list.TimeStamp"
+                type="datetime"
+                :clearable="false"
+                :placeholder="$t('configuration.timeSettingConfig.timePlaceholder')"
+                format="yyyy/MM/dd HH:mm:ss"
+                :default-value="this.$moment(list.TimeStamp).format('YYYY/MM/DD')"
+                :default-time="this.$moment(list.TimeStamp).format('HH:mm:ss')"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle2') }}</span>
-        </div>
-        <el-table :data="newObj.list1" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle2')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle3') }}</span>
-        </div>
-        <el-table :data="newObj.list2" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle3')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
+    <el-row class="submitForm">
+      <el-button type="primary" @click="submitForm">{{ $t('configuration.networkSettingConfig.confirmBtn') }}</el-button>
     </el-row>
   </div>
 </template>
@@ -52,54 +45,77 @@
 export default {
   data() {
     return {
-      newObj: {
-        list0: [],
-        list1: [],
-        list2: []
+      list: {
+        TimeStamp: 0,
+        UtcOffset: -480
       },
-      list: [
-        {
-          Title: 'Chassis Information',
-          ChassisType: 17,
-          ChassisSerial: '123456789012345678901234567890'
-        },
-        {
-          Title: 'Board Information',
-          BoardMfgDate: '02/10/2007 23:31:00',
-          BoardMfg: 'Lenovo',
-          BoardProduct: 'System Board',
-          BoardSerial: '123456789000000000000000000000',
-          BoardPartNumber: '123456789059000000309889b63098'
-        },
-        {
-          Title: 'Product Information',
-          ProductManufacturer: 'Lenovo',
-          ProductName: 'Lenovo Jintide',
-          ProductPartNumber: '333333333333313336333433363335',
-          ProductSerial: '123456789012345678901234567890',
-          ProductAssetTag: '33333364653634363533333333333333'
-        }
+      originTimeStamp: '',
+      utcOffsetList: [
+        { name: 'GMT -12:00', value: 720 },
+        { name: 'GMT -11:00', value: 660 },
+        { name: 'GMT -10:00', value: 600 },
+        { name: 'GMT -09:00', value: 540 },
+        { name: 'GMT -08:00', value: 480 },
+        { name: 'GMT -07:00', value: 420 },
+        { name: 'GMT -06:00', value: 360 },
+        { name: 'GMT -05:00', value: 300 },
+        { name: 'GMT -04:00', value: 240 },
+        { name: 'GMT -03:00', value: 180 },
+        { name: 'GMT -02:00', value: 120 },
+        { name: 'GMT -01:00', value: 60 },
+        { value: 0, name: 'GMT +00:00' },
+        { value: -60, name: 'GMT +01:00' },
+        { value: -120, name: 'GMT +02:00' },
+        { value: -180, name: 'GMT +03:00' },
+        { value: -240, name: 'GMT +04:00' },
+        { value: -300, name: 'GMT +05:00' },
+        { value: -360, name: 'GMT +06:00' },
+        { value: -420, name: 'GMT +07:00' },
+        { value: -480, name: 'GMT +08:00' },
+        { value: -540, name: 'GMT +09:00' },
+        { value: -600, name: 'GMT +10:00' },
+        { value: -660, name: 'GMT +11:00' },
+        { value: -720, name: 'GMT +12:00' },
+        { value: -780, name: 'GMT +13:00' },
+        { value: -840, name: 'GMT +14:00' }
       ]
     }
   },
+  computed: {
+    currentTime: function() {
+      return `${this.$moment(this.originTimeStamp).format('YYYY/MM/DD HH:mm:ss')} GMT ${this.$moment(this.originTimeStamp).format('Z')}`
+    }
+  },
   mounted() {
-    this.getList()
+    this.getDate()
   },
   methods: {
-    getList() {
-      for (var i = 0; i < this.list.length; i++) {
-        const arr = []
-        for (var k in this.list[i]) {
-          if (k !== 'Title') {
-            const obj = {}
-            obj.Title = k
-            obj.value = this.list[i][k]
-            arr.push(obj)
-          }
-        }
-        const name = `list${i}`
-        this.newObj[name] = arr
-      }
+    getDate() {
+      this.originTimeStamp = this.list.TimeStamp
+    },
+    submitForm() {
+      this.$confirm(this.$t('configuration.timeSettingConfig.comfirmMsg'), this.$t('configuration.userManageConfig.comfirmTitle'), {
+        confirmButtonText: this.$t('configuration.userManageConfig.confirmButtonText'),
+        cancelButtonText: this.$t('configuration.userManageConfig.cancelButtonText'),
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          duration: '1000',
+          message: this.$t('configuration.timeSettingConfig.successMsg')
+        })
+        this.list.TimeStamp = this.$moment(this.list.TimeStamp).valueOf()
+        // console.log(111, this.list)
+        setTimeout(async() => {
+          await this.$store.dispatch('user/logout')
+          this.$router.push('/login?redirect=dashboard')
+        }, 1200)
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: this.$t('configuration.timeSettingConfig.cancelMsg')
+        })
+      })
     }
   }
 }
@@ -113,11 +129,14 @@ export default {
     width: 100%;
     overflow: auto;
     padding: 0;
+    // min-width: 465px;
   }
 }
-.el-row {
-  margin-bottom: 30px;
-  background-color: rgb(240, 242, 245);
+.app-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 .infoBox {
   padding: 15px;
@@ -126,9 +145,49 @@ export default {
 .infoBoxHeader {
   display: inline-block;
   span {
-    /*padding-left: 12px;*/
     font-size: 20px;
     font-weight: 600;
   }
+}
+.labelBox {
+  margin: 15px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  .labelLeft {
+    display: inline-block;
+    width: 42%;
+    text-align: right;
+    padding: 10px 35px 10px 20px;
+  }
+  .labelRight {
+    display: inline-block;
+    width: 58%;
+    max-width: 250px;
+    padding: 10px 0;
+  }
+}
+.submitForm {
+  padding: 15px 15px 30px 15px;
+  background-color: #fff;
+  flex: 1;
+  text-align: right;
+  padding-right: 5%;
+}
+::v-deep {
+  .el-input {
+    max-width: 250px;
+    // min-width: 200px !important;
+  }
+  .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 100%;
+  }
+  .el-input--suffix .el-input__inner {
+    padding-right: 75px;
+  }
+  // .select-popper {
+  //   max-width: 250px !important;
+  //   min-width: 250px !important;
+  // }
 }
 </style>

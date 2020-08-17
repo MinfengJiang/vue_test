@@ -851,6 +851,16 @@ export default {
       vlanPriority: 'VLAN 优先级',
       vlanPriorityPlaceholder: '请输入 VLAN 优先级',
       confirmBtn: '提 交'
+    },
+    timeSettingConfig: {
+      timeSettingConfigTitle: '日期 & 时间',
+      currentTime: '当前时间',
+      timePlaceholder: '请选择日期 & 时间',
+      timeZone: '时区',
+      timeZonePlaceholder: '请选择时区',
+      comfirmMsg: '修改BMC时间/日期可能会导致网页会话结束，请问是否继续？',
+      successMsg: '修改成功！',
+      cancelMsg: '已取消修改'
     }
   }
 }
