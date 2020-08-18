@@ -66,7 +66,7 @@
         <el-form-item v-if="formData.Service_Security_Port === 65535" key="noProp" :label="$t('configuration.serivceManageConfig.serviceSecurityPort')">
           <el-input value="NA" autocomplete="off" :disabled="formData.Service_Security_Port === 65535" />
         </el-form-item>
-        <el-form-item v-else id="hasProp" key="hasProp" :label="$t('configuration.serivceManageConfig.serviceSecurityPort')" prop="Service_Security_Port" :rules="formRules.Service_Security_Port">
+        <el-form-item v-else key="hasProp" :label="$t('configuration.serivceManageConfig.serviceSecurityPort')" prop="Service_Security_Port" :rules="formRules.Service_Security_Port">
           <el-input v-model.number="formData.Service_Security_Port" autocomplete="off" />
         </el-form-item>
         <el-form-item v-if="formData.Service_NonSecurity_Port === 65535" key="noProp2" :label="$t('configuration.serivceManageConfig.serviceUnSecurePort')">

@@ -15,22 +15,22 @@
           </el-table-column>
           <el-table-column :label="$t('configuration.userManageConfig.userPrivilege')" width="120px">
             <template v-if="scope.row.Status === 0" slot-scope="scope">
-              <div v-if="scope.row.Data.UserPrivilege === 0" />
-              <div v-else-if="scope.row.Data.UserPrivilege === 1">{{ $t('configuration.userManageConfig.callback') }}</div>
-              <div v-else-if="scope.row.Data.UserPrivilege === 2">{{ $t('configuration.userManageConfig.user') }}</div>
-              <div v-else-if="scope.row.Data.UserPrivilege === 3">{{ $t('configuration.userManageConfig.operator') }}</div>
-              <div v-else-if="scope.row.Data.UserPrivilege === 4">{{ $t('configuration.userManageConfig.administrator') }}</div>
-              <!-- <div v-else-if="scope.row.Data.UserPrivilege === 5">{{ $t('configuration.userManageConfig.OEM') }}</div> -->
-              <div v-else-if="scope.row.Data.UserPrivilege === 15">{{ $t('configuration.userManageConfig.access') }}</div>
+              <div v-if="scope.row.Data.UserPrivilege === 0" key="user0" />
+              <div v-else-if="scope.row.Data.UserPrivilege === 1" key="user1">{{ $t('configuration.userManageConfig.callback') }}</div>
+              <div v-else-if="scope.row.Data.UserPrivilege === 2" key="user2">{{ $t('configuration.userManageConfig.user') }}</div>
+              <div v-else-if="scope.row.Data.UserPrivilege === 3" key="user3">{{ $t('configuration.userManageConfig.operator') }}</div>
+              <div v-else-if="scope.row.Data.UserPrivilege === 4" key="user4">{{ $t('configuration.userManageConfig.administrator') }}</div>
+              <!-- <div v-else-if="scope.row.Data.UserPrivilege === 5" key="user5">{{ $t('configuration.userManageConfig.OEM') }}</div> -->
+              <div v-else-if="scope.row.Data.UserPrivilege === 15" key="user15">{{ $t('configuration.userManageConfig.access') }}</div>
             </template>
             <template v-else />
           </el-table-column>
           <el-table-column :label="$t('configuration.userManageConfig.userEnable')" align="center" header-align="center" min-width="250px">
             <template slot-scope="scope">
-              <div v-if="scope.row.Status === 0">
+              <div v-if="scope.row.Status === 0" key="isShown">
                 <span style="color: #67c23a">{{ $t('configuration.userManageConfig.enable') }}</span>
               </div>
-              <div v-else>
+              <div v-else key="isHidden">
                 <span style="color: #f56c6c">{{ $t('configuration.userManageConfig.disable') }}</span>
               </div>
             </template>
@@ -67,14 +67,14 @@
           </span>
           <el-input v-model="form.user_name" autocomplete="off" />
         </el-form-item>
-        <el-form-item v-if="action !== 'add'" :label="$t('configuration.userManageConfig.password')">
+        <el-form-item v-if="action !== 'add'" key="isShown2" :label="$t('configuration.userManageConfig.password')">
           <el-checkbox v-model="form.change_pwd" :true-label="1" :false-label="0" @change="handleChecked" />
         </el-form-item>
         <el-form-item :label="$t('configuration.userManageConfig.passwordSize')">
           <el-radio v-model="form.password_size" :label="16">{{ $t('configuration.userManageConfig.passwordSize16') }}</el-radio>
           <el-radio v-model="form.password_size" :label="20">{{ $t('configuration.userManageConfig.passwordSize20') }}</el-radio>
         </el-form-item>
-        <el-form-item v-if="action !== 'add'" :label="$t('configuration.userManageConfig.oldPassword')" :prop="propUserName">
+        <el-form-item v-if="action !== 'add'" key="isShown3" :label="$t('configuration.userManageConfig.oldPassword')" :prop="propUserName">
           <el-input v-model="form.check_old_password" type="password" autocomplete="off" :disabled="action === 'edit' && form.change_pwd === 0" />
         </el-form-item>
         <el-form-item :prop="propPass">
