@@ -870,6 +870,24 @@ export default {
       ntpServer: 'NTP 服务器',
       ntpServerPlaceholder: '请输入 NTP 服务器',
       comfirmMsg: '同步 NTP 时间 / 日期可能会导致网页会话结束，请问是否继续？'
+    },
+    serivceManageConfig: {
+      serivceManageConfigTitle: '服务管理',
+      ID: 'ID',
+      service: '服务',
+      webService: 'WEB',
+      kvmService: 'KVM',
+      sshService: 'SSH',
+      sessionTimeout: '会话超时（秒）',
+      sessionTimeoutHelp: '输入范围：0 ~ 65534，0 表示无穷大',
+      maxSession: '最大会话数',
+      serviceSecurityPort: '服务安全端口',
+      serviceUnSecurePort: '服务非安全端口',
+      action: '操作',
+      modify: '修改',
+      comfirmMsg: '端口更改后，需要重新启动才能生效',
+      validatePort: '值必须大于 0 且小于 65535',
+      validatePortNum: '值必须为整数'
     }
   }
 }

@@ -328,9 +328,10 @@ export default {
     submitForm() {
       this.$refs.ruleForm.validate(val => {
         if (!val) return
+        this.dialogVisible = false
+        delete this.form['!@#$%^&*']
+        this.$refs.ruleForm.resetFields()
       })
-      delete this.form['!@#$%^&*']
-      // console.log(2223333, this.form)
     },
     resetForm() {
       this.dialogVisible = false

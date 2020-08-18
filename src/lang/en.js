@@ -872,6 +872,24 @@ export default {
       ntpServer: 'NTP Server',
       ntpServerPlaceholder: 'Please enter NTP server',
       comfirmMsg: 'Sync NTP the date and time may cause BMC web session expired. Do you want to continue?'
+    },
+    serivceManageConfig: {
+      serivceManageConfigTitle: 'Service Management',
+      ID: 'ID',
+      service: 'Service',
+      webService: 'WEB',
+      kvmService: 'KVM',
+      sshService: 'SSH',
+      sessionTimeout: 'Session Timeout (seconds)',
+      sessionTimeoutHelp: 'Input range: 0 ~ 65534, 0 means infinite',
+      maxSession: 'Max Session',
+      serviceSecurityPort: 'Service Security Port',
+      serviceUnSecurePort: 'Service Non-Secure Port',
+      action: 'Action',
+      modify: 'Modify',
+      comfirmMsg: 'After port change, it needs to be restarted to take effect',
+      validatePort: 'Value must be greater than 0 and less than 65535',
+      validatePortNum: 'Value must be an integer'
     }
   }
 }
