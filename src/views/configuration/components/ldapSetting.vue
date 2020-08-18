@@ -3,103 +3,147 @@
     <el-row>
       <div class="infoBox">
         <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle') }}</span>
+          <div :class="activeTab === 0 ? 'tabStyleActive' : 'tabStyle'" @click="tabActiveHandle(0)">
+            <span>{{ $t('configuration.ldapSettingConfig.ldapSettingConfigTitle') }}</span>
+          </div>
+          <div :class="activeTab === 1 ? 'tabStyleActive' : 'tabStyle'" @click="tabActiveHandle(1)">
+            <span>{{ $t('configuration.ldapSettingConfig.ldapSettingConfigTitle2') }}</span>
+          </div>
         </div>
-        <el-table :data="newObj.list0" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle2') }}</span>
-        </div>
-        <el-table :data="newObj.list1" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle2')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle3') }}</span>
-        </div>
-        <el-table :data="newObj.list2" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle3')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
+        <el-form ref="ruleForm" :model="formData" :rules="formRules" :label-width="`${formLabelWidth}px`">
+          <el-form-item :label="$t('configuration.ldapSettingConfig.enable')">
+            <el-checkbox v-if="activeTab === 0" key="ldap" v-model="formData.LDAPEnable" :true-label="0" :false-label="1" />
+            <el-checkbox v-else key="ad" v-model="formData.ADEnable" :true-label="0" :false-label="1" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.server')" prop="ServerIP">
+            <el-input v-model="formData.ServerIP" autocomplete="off" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.port')">
+            <el-input v-model="formData.ServerPort" autocomplete="off" placeholder="25" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.baseDN')">
+            <el-input v-model="formData.BaseDN" autocomplete="off" placeholder="dc=example,dc=com" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.adminBindDN')">
+            <el-input v-model="formData.BindDN" autocomplete="off" placeholder="cn=Administrator,cn=User,dc=example,dc=com" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.adminBindPassword')">
+            <el-input v-model="formData.BindPassword" type="password" autocomplete="off" placeholder="Password" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.userSearchDN')">
+            <span slot="label">
+              {{ $t('configuration.ldapSettingConfig.userSearchDN') }}
+              <el-tooltip placement="top-start">
+                <div slot="content">{{ $t('configuration.ldapSettingConfig.userSearchDNHelp') }}</div>
+                <i class="el-icon-question" />
+              </el-tooltip>
+            </span>
+            <el-input v-model="formData.UsrSearchDN" autocomplete="off" placeholder="cn=User,dc=example,dc=com" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.userSearchScope')">
+            <el-input v-model="formData.UsrSearchScope" autocomplete="off" placeholder="sAMAccountName" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.userIDAttribute')">
+            <el-input v-model="formData.UsrIDAttribute" autocomplete="off" placeholder="sAMAccountName" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.ldapSettingConfig.userPrivilege')">
+            <el-select v-model="formData.UsrPrivi" :placeholder="$t('configuration.userManageConfig.placeholder')">
+              <el-option :label="$t('configuration.userManageConfig.user')" :value="2" />
+              <el-option :label="$t('configuration.userManageConfig.operator')" :value="3" />
+              <el-option :label="$t('configuration.userManageConfig.administrator')" :value="4" />
+            </el-select>
+          </el-form-item>
+          <el-form-item class="submitBoxStyle">
+            <el-button style="margin-left: -18px" @click="resetForm">{{ $t('configuration.userManageConfig.cancelBtn') }}</el-button>
+            <el-button type="primary" style="margin-left: 50px" @click="submitForm">{{ $t('configuration.userManageConfig.confirmBtn') }}</el-button>
+          </el-form-item>
+        </el-form>
       </div>
     </el-row>
   </div>
 </template>
 
 <script>
+import { validAlphabets } from '@/utils/validate'
+
 export default {
   data() {
+    var validateServerIP = (rule, value, callback) => {
+      if (!validAlphabets(value)) {
+        callback(new Error(this.$t('configuration.ldapSettingConfig.validateServerIP')))
+      } else {
+        callback()
+      }
+    }
     return {
-      newObj: {
-        list0: [],
-        list1: [],
-        list2: []
+      formLabelWidth: document.documentElement.clientWidth * 0.36,
+      formData: {},
+      formData0: {
+        'LDAPEnable': 0,
+        'ServerIP': '123',
+        'ServerPort': 20,
+        'EnableTLS': 1,
+        'BaseDN': 'a',
+        'BindDN': 'b',
+        'BindPassword': 'c',
+        'UsrSearchDN': 'd',
+        'UsrSearchScope': 0,
+        'UsrIDAttribute': 'e',
+        'UsrPrivi': 3
       },
-      list: [
-        {
-          Title: 'Chassis Information',
-          ChassisType: 17,
-          ChassisSerial: '123456789012345678901234567890'
-        },
-        {
-          Title: 'Board Information',
-          BoardMfgDate: '02/10/2007 23:31:00',
-          BoardMfg: 'Lenovo',
-          BoardProduct: 'System Board',
-          BoardSerial: '123456789000000000000000000000',
-          BoardPartNumber: '123456789059000000309889b63098'
-        },
-        {
-          Title: 'Product Information',
-          ProductManufacturer: 'Lenovo',
-          ProductName: 'Lenovo Jintide',
-          ProductPartNumber: '333333333333313336333433363335',
-          ProductSerial: '123456789012345678901234567890',
-          ProductAssetTag: '33333364653634363533333333333333'
-        }
-      ]
+      formData1: {
+        'ADEnable': 1,
+        'ServerIP': '',
+        'ServerPort': 0,
+        'EnableTLS': 1,
+        'BaseDN': '',
+        'BindDN': '',
+        'BindPassword': '',
+        'UsrSearchDN': '',
+        'UsrSearchScope': 0,
+        'UsrIDAttribute': '',
+        'UsrPrivi': 4
+      },
+      activeTab: 0,
+      formRules: {
+        ServerIP: [
+          { validator: validateServerIP, trigger: 'change' }
+        ]
+      }
     }
   },
+  computed: {
+  },
   mounted() {
+    window.addEventListener('resize', () => {
+      return (() => {
+        this.formLabelWidth = document.documentElement.clientWidth * 0.36
+      })()
+    }, false)
     this.getList()
   },
   methods: {
     getList() {
-      for (var i = 0; i < this.list.length; i++) {
-        const arr = []
-        for (var k in this.list[i]) {
-          if (k !== 'Title') {
-            const obj = {}
-            obj.Title = k
-            obj.value = this.list[i][k]
-            arr.push(obj)
-          }
-        }
-        const name = `list${i}`
-        this.newObj[name] = arr
+      this.formData = this.formData0
+    },
+    tabActiveHandle(val) {
+      this.activeTab = val
+      if (val === 0) {
+        this.formData = this.formData0
+      } else {
+        this.formData = this.formData1
       }
+    },
+    submitForm() {
+      this.$refs.ruleForm.validate(val => {
+        if (!val) return
+        console.log(this.formData)
+        this.$refs.ruleForm.resetFields()
+      })
+    },
+    resetForm() {
+      this.dialogVisible = false
+      this.$refs.ruleForm.resetFields()
     }
   }
 }
@@ -115,9 +159,11 @@ export default {
     padding: 0;
   }
 }
-.el-row {
-  margin-bottom: 30px;
-  background-color: rgb(240, 242, 245);
+.app-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 .infoBox {
   padding: 15px;
@@ -125,10 +171,53 @@ export default {
 }
 .infoBoxHeader {
   display: inline-block;
+  margin: -15px 0 0 -15px;
   span {
     /*padding-left: 12px;*/
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
   }
+  .tabStyle {
+    display: inline-block;
+    width: 75px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .tabStyleActive {
+    display: inline-block;
+    width: 75px;
+    height: 40px;
+    line-height: 40px;
+    color: #1890ff;
+    border-radius: 0 0 2px 0;
+    border-top: 3px solid #1890ff;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.08), 0 0 2px 0 rgba(0,0,0,.04);
+  }
+}
+.submitBoxStyle {
+  margin-top: 40px;
+}
+::v-deep {
+  .el-form {
+    margin-top: 20px;
+  }
+  .el-form-item__label {
+    padding-right: 25px;
+  }
+  .el-input {
+    max-width: 250px;
+    // min-width: 200px !important;
+  }
+  .el-select {
+    width: 100%;
+  }
+}
+.userIdStyle {
+  // font-size: 16px;
+  font-weight: 700;
 }
 </style>

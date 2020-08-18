@@ -888,6 +888,22 @@ export default {
       comfirmMsg: '端口更改后，需要重新启动才能生效',
       validatePort: '值必须大于 0 且小于 65535',
       validatePortNum: '值必须为整数'
+    },
+    ldapSettingConfig: {
+      ldapSettingConfigTitle: 'LDAP',
+      ldapSettingConfigTitle2: 'AD',
+      enable: '启用',
+      server: '服务器',
+      port: '端口',
+      baseDN: '根DN',
+      adminBindDN: '管理员绑定DN',
+      adminBindPassword: '管理员绑定密码',
+      userSearchDN: '用户搜索DN',
+      userSearchDNHelp: '用户存储位置的默认LDAP路径',
+      userSearchScope: '用户搜索范围',
+      userIDAttribute: '用户ID属性',
+      userPrivilege: '角色',
+      validateServerIP: '输入限制: a~z 或 A~Z 或 0~9 或 . 或 -'
     }
   }
 }

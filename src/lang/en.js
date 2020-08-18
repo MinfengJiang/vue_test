@@ -890,6 +890,22 @@ export default {
       comfirmMsg: 'After port change, it needs to be restarted to take effect',
       validatePort: 'Value must be greater than 0 and less than 65535',
       validatePortNum: 'Value must be an integer'
+    },
+    ldapSettingConfig: {
+      ldapSettingConfigTitle: 'LDAP',
+      ldapSettingConfigTitle2: 'AD',
+      enable: 'Enable',
+      server: 'Server',
+      port: 'Port',
+      baseDN: 'Base DN',
+      adminBindDN: 'Admin Bind DN',
+      adminBindPassword: 'Admin Bind Password',
+      userSearchDN: 'User Search DN',
+      userSearchDNHelp: 'Default LDAP path to where the users are stored',
+      userSearchScope: 'User Search Scope',
+      userIDAttribute: 'User ID Attribute',
+      userPrivilege: 'User Privilege',
+      validateServerIP: 'Input limit: a~z or A~Z or 0~9 or . or -'
     }
   }
 }
