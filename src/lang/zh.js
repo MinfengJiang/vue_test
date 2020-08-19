@@ -904,6 +904,24 @@ export default {
       userIDAttribute: '用户ID属性',
       userPrivilege: '角色',
       validateServerIP: '输入限制: a~z 或 A~Z 或 0~9 或 . 或 -'
+    },
+    smtpSettingConfig: {
+      smtpSettingConfigTitle: 'SMTP 设置',
+      lanChannel: 'Lan 通道',
+      lanChannelPlaceholder: '请选择 Lan 通道',
+      smtpServer: 'SMTP 服务器',
+      smtpServerPlaceholder: '请输入 SMTP 服务器',
+      port: '端口',
+      senderEmail: '寄件人电子邮件',
+      senderEmailPlaceholder: '请输入寄件人电子邮件',
+      authMethod: '验证方法',
+      authMethodPlaceholder: '请选择验证方法',
+      userName: '用户名',
+      userNamePlaceholder: '请输入用户名',
+      password: '密码',
+      passwordPlaceholder: '请输入密码',
+      enable: '启用',
+      validateEmailAddr: '请输入合法的email地址'
     }
   }
 }

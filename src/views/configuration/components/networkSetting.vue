@@ -278,8 +278,8 @@ export default {
   padding: 15px 15px 30px 15px;
   background-color: #fff;
   flex: 1;
-  text-align: right;
-  padding-right: 5%;
+  text-align: center;
+  padding-left: 6.5%;
 }
 ::v-deep {
   .el-switch__label {

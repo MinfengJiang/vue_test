@@ -906,6 +906,24 @@ export default {
       userIDAttribute: 'User ID Attribute',
       userPrivilege: 'User Privilege',
       validateServerIP: 'Input limit: a~z or A~Z or 0~9 or . or -'
+    },
+    smtpSettingConfig: {
+      smtpSettingConfigTitle: 'SMTP Setting',
+      lanChannel: 'Lan Channel',
+      lanChannelPlaceholder: 'Please select Lan channel',
+      smtpServer: 'SMTP Server',
+      smtpServerPlaceholder: 'Please enter SMTP server',
+      port: 'Port',
+      senderEmail: 'Sender Email',
+      senderEmailPlaceholder: 'Please enter sender email',
+      authMethod: 'Auth Method',
+      authMethodPlaceholder: 'Please select auth method',
+      userName: 'User Name',
+      userNamePlaceholder: 'Please enter user name',
+      password: 'Password',
+      passwordPlaceholder: 'Please enter password',
+      enable: 'Enable',
+      validateEmailAddr: 'Please enter a valid email address'
     }
   }
 }

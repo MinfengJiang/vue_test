@@ -54,7 +54,6 @@
             </el-select>
           </el-form-item>
           <el-form-item class="submitBoxStyle">
-            <el-button style="margin-left: -18px" @click="resetForm">{{ $t('configuration.userManageConfig.cancelBtn') }}</el-button>
             <el-button type="primary" style="margin-left: 50px" @click="submitForm">{{ $t('configuration.userManageConfig.confirmBtn') }}</el-button>
           </el-form-item>
         </el-form>
@@ -69,14 +68,14 @@ import { validAlphabets } from '@/utils/validate'
 export default {
   data() {
     var validateServerIP = (rule, value, callback) => {
-      if (!validAlphabets(value)) {
+      if (value !== '' && !validAlphabets(value)) {
         callback(new Error(this.$t('configuration.ldapSettingConfig.validateServerIP')))
       } else {
         callback()
       }
     }
     return {
-      formLabelWidth: document.documentElement.clientWidth * 0.36,
+      formLabelWidth: this.$store.getters.sidebar.opened ? document.documentElement.clientWidth * 0.315 : document.documentElement.clientWidth * 0.315 + 65,
       formData: {},
       formData0: {
         'LDAPEnable': 0,
@@ -113,11 +112,27 @@ export default {
     }
   },
   computed: {
+    opened: function() {
+      return this.$store.getters.sidebar.opened
+    }
+  },
+  watch: {
+    opened(newName, oldName) {
+      if (newName) {
+        this.formLabelWidth = document.documentElement.clientWidth * 0.315
+      } else {
+        this.formLabelWidth = document.documentElement.clientWidth * 0.315 + 65
+      }
+    }
   },
   mounted() {
     window.addEventListener('resize', () => {
       return (() => {
-        this.formLabelWidth = document.documentElement.clientWidth * 0.36
+        if (this.opened) {
+          this.formLabelWidth = document.documentElement.clientWidth * 0.315
+        } else {
+          this.formLabelWidth = document.documentElement.clientWidth * 0.315 + 65
+        }
       })()
     }, false)
     this.getList()
@@ -140,10 +155,6 @@ export default {
         console.log(this.formData)
         this.$refs.ruleForm.resetFields()
       })
-    },
-    resetForm() {
-      this.dialogVisible = false
-      this.$refs.ruleForm.resetFields()
     }
   }
 }
@@ -199,21 +210,24 @@ export default {
   }
 }
 .submitBoxStyle {
-  margin-top: 40px;
+  margin: 40px 0 25px 35px;
 }
 ::v-deep {
   .el-form {
     margin-top: 20px;
   }
   .el-form-item__label {
-    padding-right: 25px;
+    padding-right: 35px;
   }
   .el-input {
     max-width: 250px;
     // min-width: 200px !important;
   }
-  .el-select {
+  .el-date-editor.el-input, .el-date-editor.el-input__inner {
     width: 100%;
+  }
+  .el-input--suffix .el-input__inner {
+    padding-right: 75px;
   }
 }
 .userIdStyle {

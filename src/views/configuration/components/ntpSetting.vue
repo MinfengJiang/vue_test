@@ -53,7 +53,6 @@ export default {
         SyncAddr: 'cn.ntp.org.cna'
       },
       checked: false,
-      formLabelWidth: this.labelWidth,
       formRules: {
         SyncAddr: [
           { required: true, validator: validateNTPAddress, trigger: 'change' }
@@ -149,11 +148,11 @@ export default {
   }
 }
 .submitForm {
-  padding: 15px 15px 30px 15px;
+  padding: 0 15px 30px 15px;
   background-color: #fff;
   flex: 1;
-  text-align: right;
-  padding-right: 5%;
+  text-align: center;
+  padding-left: 6.5%;
 }
 ::v-deep {
   .el-form-item__label {
