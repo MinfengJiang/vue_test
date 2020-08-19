@@ -3,46 +3,64 @@
     <el-row>
       <div class="infoBox">
         <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle') }}</span>
+          <span>{{ $t('configuration.snmpSettingConfig.snmpSettingConfigTitle') }}</span>
         </div>
-        <el-table :data="newObj.list0" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle2') }}</span>
-        </div>
-        <el-table :data="newObj.list1" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle2')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle3') }}</span>
-        </div>
-        <el-table :data="newObj.list2" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle3')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
+        <el-form ref="ruleForm" :model="formData" :rules="formRules" :label-width="`${formLabelWidth}px`">
+          <el-form-item :label="$t('configuration.snmpSettingConfig.enable')">
+            <el-checkbox v-model="formData.SnmpEnable" :true-label="0" :false-label="1" />
+          </el-form-item>
+          <el-form-item :label="$t('configuration.snmpSettingConfig.snmpVersion')">
+            <el-select v-model="formData.SnmpVersion" :disabled="formData.SnmpEnable !== 0">
+              <el-option label="SNMPv1" :value="0" />
+              <el-option label="SNMPv2c" :value="1" />
+              <el-option label="SNMPv3" :value="2" />
+            </el-select>
+          </el-form-item>
+          <el-form-item v-if="formData.SnmpVersion !== 2" key="SnmpRoCommunity" :label="$t('configuration.snmpSettingConfig.RoCommunity')">
+            <el-input v-model="formData.SnmpRoCommunity" :disabled="formData.SnmpEnable !== 0" autocomplete="off" :placeholder="$t('configuration.snmpSettingConfig.RoCommunityPlaceholder')" />
+          </el-form-item>
+          <el-form-item v-if="formData.SnmpVersion !== 2" key="SnmpRwCommunity" :label="$t('configuration.snmpSettingConfig.RwCommunity')">
+            <el-input v-model="formData.SnmpRwCommunity" :disabled="formData.SnmpEnable !== 0" autocomplete="off" :placeholder="$t('configuration.snmpSettingConfig.RwCommunityPlaceholder')" />
+          </el-form-item>
+          <el-form-item v-if="formData.SnmpVersion === 2" key="SnmpUserAccessMode" :label="$t('configuration.snmpSettingConfig.userAccessMode')">
+            <el-select v-model="formData.SnmpUserAccessMode" :disabled="formData.SnmpEnable !== 0">
+              <el-option label="Read-Only" :value="0" />
+              <el-option label="Read-Write" :value="1" />
+            </el-select>
+          </el-form-item>
+          <el-form-item v-if="formData.SnmpVersion === 2" key="SnmpUsername" :label="$t('configuration.snmpSettingConfig.userName')" prop="SnmpUsername">
+            <el-input v-model="formData.SnmpUsername" :disabled="formData.SnmpEnable !== 0" autocomplete="off" :placeholder="$t('configuration.snmpSettingConfig.userNamePlaceholder')" />
+          </el-form-item>
+          <el-form-item v-if="formData.SnmpVersion === 2" key="AuthMethod" :label="$t('configuration.snmpSettingConfig.authMethod')">
+            <el-select v-model="formData.AuthMethod" :disabled="formData.SnmpEnable !== 0">
+              <el-option label="NONE" :value="0" />
+              <el-option label="MD5" :value="1" />
+              <el-option label="SHA" :value="2" />
+            </el-select>
+          </el-form-item>
+          <el-form-item v-if="authMethodShown" key="SnmpAuthPassword" :label="$t('configuration.snmpSettingConfig.authPassword')" prop="SnmpAuthPassword">
+            <el-input v-model="formData.SnmpAuthPassword" :disabled="formData.SnmpEnable !== 0" type="password" autocomplete="off" :placeholder="$t('configuration.snmpSettingConfig.authPasswordPlaceholder')" />
+          </el-form-item>
+          <el-form-item v-if="authMethodShown" key="confirmAuthPassword" :label="$t('configuration.snmpSettingConfig.confirmAuthPassword')" prop="confirmAuthPassword">
+            <el-input v-model="formData.confirmAuthPassword" :disabled="formData.SnmpEnable !== 0" type="password" autocomplete="off" :placeholder="$t('configuration.snmpSettingConfig.confirmAuthPasswordPlaceholder')" />
+          </el-form-item>
+          <el-form-item v-if="formData.SnmpVersion === 2" key="EncryptMethod" :label="$t('configuration.snmpSettingConfig.encryptMethod')">
+            <el-select v-model="formData.EncryptMethod" :disabled="formData.SnmpEnable !== 0">
+              <el-option label="NONE" :value="0" />
+              <el-option label="AES" :value="1" />
+              <el-option label="DES" :value="2" />
+            </el-select>
+          </el-form-item>
+          <el-form-item v-if="encryptMethodShown" key="SnmpEncryptPassword" :label="$t('configuration.snmpSettingConfig.encryptPassword')" prop="SnmpEncryptPassword">
+            <el-input v-model="formData.SnmpEncryptPassword" :disabled="formData.SnmpEnable !== 0" type="password" autocomplete="off" :placeholder="$t('configuration.snmpSettingConfig.encryptPasswordPlaceholder')" />
+          </el-form-item>
+          <el-form-item v-if="encryptMethodShown" key="confirmEncryptPassword" :label="$t('configuration.snmpSettingConfig.confirmEncryptPassword')" prop="confirmEncryptPassword">
+            <el-input v-model="formData.confirmEncryptPassword" :disabled="formData.SnmpEnable !== 0" type="password" autocomplete="off" :placeholder="$t('configuration.snmpSettingConfig.confirmEncryptPasswordPlaceholder')" />
+          </el-form-item>
+          <el-form-item class="submitBoxStyle">
+            <el-button type="primary" style="margin-left: 50px" @click="submitForm">{{ $t('configuration.userManageConfig.confirmBtn') }}</el-button>
+          </el-form-item>
+        </el-form>
       </div>
     </el-row>
   </div>
@@ -51,55 +69,129 @@
 <script>
 export default {
   data() {
-    return {
-      newObj: {
-        list0: [],
-        list1: [],
-        list2: []
-      },
-      list: [
-        {
-          Title: 'Chassis Information',
-          ChassisType: 17,
-          ChassisSerial: '123456789012345678901234567890'
-        },
-        {
-          Title: 'Board Information',
-          BoardMfgDate: '02/10/2007 23:31:00',
-          BoardMfg: 'Lenovo',
-          BoardProduct: 'System Board',
-          BoardSerial: '123456789000000000000000000000',
-          BoardPartNumber: '123456789059000000309889b63098'
-        },
-        {
-          Title: 'Product Information',
-          ProductManufacturer: 'Lenovo',
-          ProductName: 'Lenovo Jintide',
-          ProductPartNumber: '333333333333313336333433363335',
-          ProductSerial: '123456789012345678901234567890',
-          ProductAssetTag: '33333364653634363533333333333333'
+    var validateSnmpUserName = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error(this.$t('configuration.snmpSettingConfig.userNamePlaceholder')))
+      } else {
+        callback()
+      }
+    }
+    var validateSnmpAuthPassword = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error(this.$t('configuration.snmpSettingConfig.authPasswordPlaceholder')))
+      } else {
+        if (this.formData.confirmAuthPassword !== undefined && this.formData.confirmAuthPassword !== '') {
+          this.$refs.ruleForm.validateField('confirmAuthPassword')
         }
-      ]
+        callback()
+      }
+    }
+    var validateConfirmAuthPassword = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error(this.$t('configuration.snmpSettingConfig.validatePassAgain')))
+      } else if (value !== '' && value !== this.formData.SnmpAuthPassword) {
+        callback(new Error(this.$t('configuration.snmpSettingConfig.validatePassInconsistent')))
+      } else {
+        callback()
+      }
+    }
+    var validateSnmpEncryptPassword = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error(this.$t('configuration.snmpSettingConfig.encryptPasswordPlaceholder')))
+      } else {
+        if (this.formData.confirmEncryptPassword !== undefined && this.formData.confirmEncryptPassword !== '') {
+          this.$refs.ruleForm.validateField('confirmEncryptPassword')
+        }
+        callback()
+      }
+    }
+    var validateConfirmEncryptPassword = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error(this.$t('configuration.snmpSettingConfig.validatePassAgain')))
+      } else if (value !== '' && value !== this.formData.SnmpEncryptPassword) {
+        callback(new Error(this.$t('configuration.snmpSettingConfig.validatePassInconsistent')))
+      } else {
+        callback()
+      }
+    }
+    return {
+      formLabelWidth: this.$store.getters.sidebar.opened ? document.documentElement.clientWidth * 0.315 : document.documentElement.clientWidth * 0.315 + 65,
+      formData: {
+        'SnmpEnable': 1,
+        'SnmpVersion': 1,
+        'AuthMethod': 0,
+        'EncryptMethod': 0,
+        'SnmpUserAccessMode': 0,
+        'SnmpUsername': '',
+        'SnmpAuthPassword': '',
+        'SnmpEncryptPassword': '',
+        'SnmpRoCommunity': 'public',
+        'SnmpRwCommunity': 'private'
+      },
+      formRules: {
+        SnmpUsername: [
+          { required: true, validator: validateSnmpUserName, trigger: 'change' }
+        ],
+        SnmpAuthPassword: [
+          { required: true, validator: validateSnmpAuthPassword, trigger: 'change' },
+          { min: 8, max: 16, message: this.$t('configuration.snmpSettingConfig.validatePassLenght'), trigger: 'blur' }
+        ],
+        confirmAuthPassword: [
+          { required: true, validator: validateConfirmAuthPassword, trigger: 'change' }
+        ],
+        SnmpEncryptPassword: [
+          { required: true, validator: validateSnmpEncryptPassword, trigger: 'change' },
+          { min: 8, max: 16, message: this.$t('configuration.snmpSettingConfig.validatePassLenght'), trigger: 'blur' }
+        ],
+        confirmEncryptPassword: [
+          { required: true, validator: validateConfirmEncryptPassword, trigger: 'change' }
+        ]
+      }
+    }
+  },
+  computed: {
+    opened: function() {
+      return this.$store.getters.sidebar.opened
+    },
+    authMethodShown: function() {
+      return this.formData.SnmpVersion === 2 ? (this.formData.AuthMethod !== 0) : false
+    },
+    encryptMethodShown: function() {
+      return this.formData.SnmpVersion === 2 ? (this.formData.EncryptMethod !== 0) : false
+    }
+  },
+  watch: {
+    opened(newName, oldName) {
+      if (newName) {
+        this.formLabelWidth = document.documentElement.clientWidth * 0.315
+      } else {
+        this.formLabelWidth = document.documentElement.clientWidth * 0.315 + 65
+      }
     }
   },
   mounted() {
-    this.getList()
+    window.addEventListener('resize', () => {
+      return (() => {
+        if (this.opened) {
+          this.formLabelWidth = document.documentElement.clientWidth * 0.315
+        } else {
+          this.formLabelWidth = document.documentElement.clientWidth * 0.315 + 65
+        }
+      })()
+    }, false)
   },
   methods: {
-    getList() {
-      for (var i = 0; i < this.list.length; i++) {
-        const arr = []
-        for (var k in this.list[i]) {
-          if (k !== 'Title') {
-            const obj = {}
-            obj.Title = k
-            obj.value = this.list[i][k]
-            arr.push(obj)
-          }
+    submitForm() {
+      this.$refs.ruleForm.validate(val => {
+        if (!val) return
+        if (this.formData.confirmAuthPassword !== undefined) {
+          delete this.formData['confirmAuthPassword']
         }
-        const name = `list${i}`
-        this.newObj[name] = arr
-      }
+        if (this.formData.confirmEncryptPassword !== undefined) {
+          delete this.formData['confirmEncryptPassword']
+        }
+        // console.log(this.formData)
+      })
     }
   }
 }
@@ -115,9 +207,11 @@ export default {
     padding: 0;
   }
 }
-.el-row {
-  margin-bottom: 30px;
-  background-color: rgb(240, 242, 245);
+.app-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 .infoBox {
   padding: 15px;
@@ -130,5 +224,30 @@ export default {
     font-size: 20px;
     font-weight: 600;
   }
+}
+.submitBoxStyle {
+  margin: 40px 0 25px 35px;
+}
+::v-deep {
+  .el-form {
+    margin-top: 20px;
+  }
+  .el-form-item__label {
+    padding-right: 35px;
+  }
+  .el-input {
+    max-width: 250px;
+    // min-width: 200px !important;
+  }
+  .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 100%;
+  }
+  .el-input--suffix .el-input__inner {
+    padding-right: 75px;
+  }
+}
+.userIdStyle {
+  // font-size: 16px;
+  font-weight: 700;
 }
 </style>

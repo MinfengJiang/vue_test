@@ -924,6 +924,31 @@ export default {
       passwordPlaceholder: 'Please enter password',
       enable: 'Enable',
       validateEmailAddr: 'Please enter a valid email address'
+    },
+    snmpSettingConfig: {
+      snmpSettingConfigTitle: 'SNMP Setting',
+      enable: 'Enable',
+      snmpVersion: 'SNMP Version',
+      RoCommunity: 'Read-Only Community',
+      RoCommunityPlaceholder: 'Please enter Read-Only community',
+      RwCommunity: 'Read-Write Community',
+      RwCommunityPlaceholder: 'Please enter Read-Write community',
+      userAccessMode: 'User Access Mode',
+      userName: 'User Name',
+      userNamePlaceholder: 'Please enter user name',
+      authMethod: 'Auth Method',
+      authPassword: 'Authentication Password',
+      authPasswordPlaceholder: 'Please enter auth password',
+      confirmAuthPassword: 'Confirm Authentication Password',
+      confirmAuthPasswordPlaceholder: 'Please enter confirm auth password',
+      encryptMethod: 'Encrypt Method',
+      encryptPassword: 'Encrypt Password',
+      encryptPasswordPlaceholder: 'Please enter encrypt password',
+      confirmEncryptPassword: 'Confirm Encrypt Password',
+      confirmEncryptPasswordPlaceholder: 'Please enter confirm encrypt password',
+      validatePassAgain: 'Please enter the password again',
+      validatePassInconsistent: 'The two passwords are inconsistent!',
+      validatePassLenght: 'Length should be 8 to 16'
     }
   }
 }

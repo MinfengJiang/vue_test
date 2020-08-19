@@ -922,6 +922,31 @@ export default {
       passwordPlaceholder: '请输入密码',
       enable: '启用',
       validateEmailAddr: '请输入合法的email地址'
+    },
+    snmpSettingConfig: {
+      snmpSettingConfigTitle: 'SNMP 设置',
+      enable: '启用',
+      snmpVersion: 'SNMP 版本',
+      RoCommunity: '只读团体名',
+      RoCommunityPlaceholder: '请输入只读团体名',
+      RwCommunity: '读写团体名',
+      RwCommunityPlaceholder: '请输入读写团体名',
+      userAccessMode: '用户访问模式',
+      userName: '用户名',
+      userNamePlaceholder: '请输入用户名',
+      authMethod: '验证方法',
+      authPassword: '验证密码',
+      authPasswordPlaceholder: '请输入验证密码',
+      confirmAuthPassword: '确认验证密码',
+      confirmAuthPasswordPlaceholder: '请输入确认验证密码',
+      encryptMethod: '加密方法',
+      encryptPassword: '加密密码',
+      encryptPasswordPlaceholder: '请输入加密密码',
+      confirmEncryptPassword: '确认加密密码',
+      confirmEncryptPasswordPlaceholder: '请输入确认加密密码',
+      validatePassAgain: '请再次输入密码',
+      validatePassInconsistent: '两次输入密码不一致!',
+      validatePassLenght: '长度在 8 到 16 个字符'
     }
   }
 }

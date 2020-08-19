@@ -162,7 +162,7 @@ export default {
         } else {
           this.formData.change_pwd = 0 // changed
         }
-        console.log(this.formData)
+        // console.log(this.formData)
         this.$refs.ruleForm.resetFields()
       })
     }
