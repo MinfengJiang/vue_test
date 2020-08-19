@@ -949,6 +949,16 @@ export default {
       validatePassAgain: 'Please enter the password again',
       validatePassInconsistent: 'The two passwords are inconsistent!',
       validatePassLenght: 'Length should be 8 to 16'
+    },
+    powerOnModeConfig: {
+      powerOnModeConfigTitle: 'Power On Recovery Strategy',
+      serverOn: 'Server Always On',
+      serverOff: 'Server Always Off',
+      beforeDown: 'Server Restore The State Before Power Down',
+      powerOnRandom: 'Power On After Delaying Random Time',
+      powerOnDelay: 'Power On After A Fixed Time Delay',
+      delayTime: 'Delay (maximum) time (seconds)',
+      powerOnDelayTimePlaceholder: 'Please enter delay (maximum) time'
     }
   }
 }

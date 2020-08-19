@@ -947,6 +947,16 @@ export default {
       validatePassAgain: '请再次输入密码',
       validatePassInconsistent: '两次输入密码不一致!',
       validatePassLenght: '长度在 8 到 16 个字符'
+    },
+    powerOnModeConfig: {
+      powerOnModeConfigTitle: '上电恢复策略',
+      serverOn: '服务器常开',
+      serverOff: '服务器常关',
+      beforeDown: '服务器恢复掉电前状态',
+      powerOnRandom: '延迟随机时间后上电',
+      powerOnDelay: '延迟固定时间后上电',
+      delayTime: '延迟（最大）时间（秒）',
+      powerOnDelayTimePlaceholder: '请输入延迟（最大）时间'
     }
   }
 }

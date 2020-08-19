@@ -17,7 +17,7 @@
             <el-input v-model="formData.SmtpServerIP" autocomplete="off" :placeholder="$t('configuration.smtpSettingConfig.smtpServerPlaceholder')" />
           </el-form-item>
           <el-form-item :label="$t('configuration.smtpSettingConfig.port')">
-            <el-input v-model="formData.SmtpServerPort" autocomplete="off" placeholder="25" />
+            <el-input v-model="formData.SmtpServerPort" type="number" autocomplete="off" placeholder="25" />
           </el-form-item>
           <el-form-item :label="$t('configuration.smtpSettingConfig.senderEmail')" prop="SenderEmailAddr">
             <el-input v-model="formData.SenderEmailAddr" autocomplete="off" :placeholder="$t('configuration.smtpSettingConfig.senderEmailPlaceholder')" />
@@ -211,6 +211,11 @@ export default {
   .el-input {
     max-width: 250px;
     // min-width: 200px !important;
+  }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
   }
   .el-date-editor.el-input, .el-date-editor.el-input__inner {
     width: 100%;

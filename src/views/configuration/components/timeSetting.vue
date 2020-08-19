@@ -179,6 +179,11 @@ export default {
     max-width: 250px;
     // min-width: 200px !important;
   }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
+  }
   .el-date-editor.el-input, .el-date-editor.el-input__inner {
     width: 100%;
   }

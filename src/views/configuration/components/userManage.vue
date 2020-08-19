@@ -91,7 +91,7 @@
           <el-input v-model="form.user_password" type="password" autocomplete="off" :disabled="action === 'edit' && form.change_pwd === 0" />
         </el-form-item>
         <el-form-item :label="$t('configuration.userManageConfig.passExpiration')" prop="pwd_change_cycle">
-          <el-input v-model.number="form.pwd_change_cycle" autocomplete="off" />
+          <el-input v-model.number="form.pwd_change_cycle" type="number" autocomplete="off" />
         </el-form-item>
         <el-form-item :label="$t('configuration.userManageConfig.userPrivilege')">
           <el-select v-model="form.usr_privilege" :placeholder="$t('configuration.userManageConfig.placeholder')">
@@ -415,6 +415,11 @@ export default {
   .el-input {
     max-width: 250px;
     // min-width: 200px !important;
+  }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
   }
   .el-select {
     width: 100%;

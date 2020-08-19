@@ -3,47 +3,54 @@
     <el-row>
       <div class="infoBox">
         <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle') }}</span>
+          <span>{{ $t('configuration.powerOnModeConfig.powerOnModeConfigTitle') }}</span>
         </div>
-        <el-table :data="newObj.list0" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
+        <div class="labelBox">
+          <div class="labelLeft">
+            <el-radio v-model="formData.PowerRestorePolicy" :label="2">{{ '' }}</el-radio>
+          </div>
+          <div class="labelRight">{{ $t('configuration.powerOnModeConfig.serverOn') }}</div>
+        </div>
+        <div class="labelBox">
+          <div class="labelLeft">
+            <el-radio v-model="formData.PowerRestorePolicy" :label="0">{{ '' }}</el-radio>
+          </div>
+          <div class="labelRight">{{ $t('configuration.powerOnModeConfig.serverOff') }}</div>
+        </div>
+        <div class="labelBox">
+          <div class="labelLeft">
+            <el-radio v-model="formData.PowerRestorePolicy" :label="1">{{ '' }}</el-radio>
+          </div>
+          <div class="labelRight">{{ $t('configuration.powerOnModeConfig.beforeDown') }} </div>
+        </div>
+        <div class="whiteBox" />
+        <div class="labelBox">
+          <div class="labelLeft">
+            <el-radio v-model="formData.PowerOnDelayMode" :label="2">{{ '' }}</el-radio>
+          </div>
+          <div class="labelRight">{{ $t('configuration.powerOnModeConfig.powerOnRandom') }}</div>
+        </div>
+        <div class="labelBox">
+          <div class="labelLeft">
+            <el-radio v-model="formData.PowerOnDelayMode" :label="1">{{ '' }}</el-radio>
+          </div>
+          <div class="labelRight">{{ $t('configuration.powerOnModeConfig.powerOnDelay') }}</div>
+        </div>
+        <div class="whiteBox" />
+        <div class="labelBox">
+          <div class="labelLeft">{{ $t('configuration.powerOnModeConfig.delayTime') }}</div>
+          <div class="labelRight2">
+            <el-form ref="ruleForm" :model="formData" :rules="formRules">
+              <el-form-item label="" prop="PowerOnDelayTime">
+                <el-input v-model.number="formData.PowerOnDelayTime" type="number" autocomplete="off" :placeholder="$t('configuration.powerOnModeConfig.powerOnDelayTimePlaceholder')" />
+              </el-form-item>
+            </el-form>
+          </div>
+        </div>
       </div>
     </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle2') }}</span>
-        </div>
-        <el-table :data="newObj.list1" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle2')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle3') }}</span>
-        </div>
-        <el-table :data="newObj.list2" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle3')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
-          </el-table-column>
-        </el-table>
-      </div>
+    <el-row class="submitForm">
+      <el-button type="primary" @click="submitForm">{{ $t('configuration.networkSettingConfig.confirmBtn') }}</el-button>
     </el-row>
   </div>
 </template>
@@ -51,55 +58,34 @@
 <script>
 export default {
   data() {
+    var validatePowerOnDelayTime = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error(this.$t('configuration.powerOnModeConfig.powerOnDelayTimePlaceholder')))
+      } else {
+        callback()
+      }
+    }
     return {
-      newObj: {
-        list0: [],
-        list1: [],
-        list2: []
+      formData: {
+        PowerRestorePolicy: 0,
+        PowerOnDelayMode: 2,
+        PowerOnDelayTime: 309
       },
-      list: [
-        {
-          Title: 'Chassis Information',
-          ChassisType: 17,
-          ChassisSerial: '123456789012345678901234567890'
-        },
-        {
-          Title: 'Board Information',
-          BoardMfgDate: '02/10/2007 23:31:00',
-          BoardMfg: 'Lenovo',
-          BoardProduct: 'System Board',
-          BoardSerial: '123456789000000000000000000000',
-          BoardPartNumber: '123456789059000000309889b63098'
-        },
-        {
-          Title: 'Product Information',
-          ProductManufacturer: 'Lenovo',
-          ProductName: 'Lenovo Jintide',
-          ProductPartNumber: '333333333333313336333433363335',
-          ProductSerial: '123456789012345678901234567890',
-          ProductAssetTag: '33333364653634363533333333333333'
-        }
-      ]
+      formRules: {
+        PowerOnDelayTime: [
+          { validator: validatePowerOnDelayTime, trigger: 'change' }
+        ]
+      }
     }
   },
-  mounted() {
-    this.getList()
+  computed: {
   },
   methods: {
-    getList() {
-      for (var i = 0; i < this.list.length; i++) {
-        const arr = []
-        for (var k in this.list[i]) {
-          if (k !== 'Title') {
-            const obj = {}
-            obj.Title = k
-            obj.value = this.list[i][k]
-            arr.push(obj)
-          }
-        }
-        const name = `list${i}`
-        this.newObj[name] = arr
-      }
+    submitForm() {
+      this.$refs.ruleForm.validate(val => {
+        if (!val) return
+        console.log(typeof this.formData.PowerOnDelayTime, this.formData)
+      })
     }
   }
 }
@@ -113,11 +99,14 @@ export default {
     width: 100%;
     overflow: auto;
     padding: 0;
+    // min-width: 465px;
   }
 }
-.el-row {
-  margin-bottom: 30px;
-  background-color: rgb(240, 242, 245);
+.app-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 .infoBox {
   padding: 15px;
@@ -126,9 +115,67 @@ export default {
 .infoBoxHeader {
   display: inline-block;
   span {
-    /*padding-left: 12px;*/
     font-size: 20px;
     font-weight: 600;
+  }
+}
+.labelBox {
+  margin: 15px 0;
+  font-size: 14px;
+  // font-weight: 600;
+  color: #666;
+  .labelLeft {
+    display: inline-block;
+    width: 42%;
+    text-align: right;
+    padding: 10px 35px 10px 20px;
+    font-weight: 600;
+  }
+  .labelRight {
+    display: inline-block;
+    width: 58%;
+    max-width: 250px;
+    padding: 10px 0;
+    font-weight: 600;
+  }
+  .labelRight2 {
+    display: inline-block;
+    width: 58%;
+    max-width: 250px;
+    padding: 10px 0;
+  }
+}
+.whiteBox{
+  width: 100%;
+  height: 1px;
+  margin: 28px;
+  box-sizing: border-box;
+}
+.submitForm {
+  padding: 0 15px 30px 15px;
+  background-color: #fff;
+  flex: 1;
+  text-align: center;
+  padding-left: 6.5%;
+}
+::v-deep {
+  .el-form-item__label {
+    padding-right: 35px;
+  }
+  .el-input {
+    max-width: 250px;
+    // min-width: 200px !important;
+  }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
+  }
+  .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 100%;
+  }
+  .el-input--suffix .el-input__inner {
+    padding-right: 75px;
   }
 }
 </style>

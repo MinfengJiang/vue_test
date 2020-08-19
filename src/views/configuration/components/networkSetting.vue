@@ -303,6 +303,11 @@ export default {
     max-width: 250px;
     // min-width: 200px !important;
   }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
+  }
   .el-input--suffix .el-input__inner {
     padding-right: 75px;
   }

@@ -61,19 +61,19 @@
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
-          <el-input v-model.number="formData.Service_Timeout_Time" autocomplete="off" />
+          <el-input v-model.number="formData.Service_Timeout_Time" type="number" autocomplete="off" />
         </el-form-item>
         <el-form-item v-if="formData.Service_Security_Port === 65535" key="noProp" :label="$t('configuration.serivceManageConfig.serviceSecurityPort')">
           <el-input value="NA" autocomplete="off" :disabled="formData.Service_Security_Port === 65535" />
         </el-form-item>
         <el-form-item v-else key="hasProp" :label="$t('configuration.serivceManageConfig.serviceSecurityPort')" prop="Service_Security_Port" :rules="formRules.Service_Security_Port">
-          <el-input v-model.number="formData.Service_Security_Port" autocomplete="off" />
+          <el-input v-model.number="formData.Service_Security_Port" type="number" autocomplete="off" />
         </el-form-item>
         <el-form-item v-if="formData.Service_NonSecurity_Port === 65535" key="noProp2" :label="$t('configuration.serivceManageConfig.serviceUnSecurePort')">
           <el-input value="NA" autocomplete="off" :disabled="formData.Service_NonSecurity_Port === 65535" />
         </el-form-item>
         <el-form-item v-else key="hasProp2" :label="$t('configuration.serivceManageConfig.serviceUnSecurePort')" prop="Service_NonSecurity_Port" :rules="formRules.Service_NonSecurity_Port">
-          <el-input v-model.number="formData.Service_NonSecurity_Port" autocomplete="off" />
+          <el-input v-model.number="formData.Service_NonSecurity_Port" type="number" autocomplete="off" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -245,6 +245,11 @@ export default {
   .el-input {
     max-width: 250px;
     // min-width: 200px !important;
+  }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
   }
   .el-select {
     width: 100%;

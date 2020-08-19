@@ -19,7 +19,7 @@
             <el-input v-model="formData.ServerIP" autocomplete="off" />
           </el-form-item>
           <el-form-item :label="$t('configuration.ldapSettingConfig.port')">
-            <el-input v-model="formData.ServerPort" autocomplete="off" placeholder="25" />
+            <el-input v-model="formData.ServerPort" type="number" autocomplete="off" placeholder="25" />
           </el-form-item>
           <el-form-item :label="$t('configuration.ldapSettingConfig.baseDN')">
             <el-input v-model="formData.BaseDN" autocomplete="off" placeholder="dc=example,dc=com" />
@@ -222,6 +222,11 @@ export default {
   .el-input {
     max-width: 250px;
     // min-width: 200px !important;
+  }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
   }
   .el-date-editor.el-input, .el-date-editor.el-input__inner {
     width: 100%;
