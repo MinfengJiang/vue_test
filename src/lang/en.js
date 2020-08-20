@@ -959,6 +959,17 @@ export default {
       powerOnDelay: 'Power On After A Fixed Time Delay',
       delayTime: 'Delay (maximum) time (seconds)',
       powerOnDelayTimePlaceholder: 'Please enter delay (maximum) time'
+    },
+    powerCappingConfig: {
+      powerCappingConfigTitle: 'Power Capping',
+      powerEnable: 'Power Capping Enable',
+      powerDisable: 'Power Capping Disable',
+      powerLimit: 'Power Limit (watt)',
+      powerLimitPlaceholder: 'Please enter power limit',
+      powerConsumLimit: 'Power Consumption Limited Redundancy (watt)',
+      powerConsumLimitPlaceholder: 'Please enter power consumption limit',
+      currentTotalPower: 'Current Total Power Consumption (watt)',
+      powerLimitState: 'Power Limit State'
     }
   }
 }

@@ -957,6 +957,17 @@ export default {
       powerOnDelay: '延迟固定时间后上电',
       delayTime: '延迟（最大）时间（秒）',
       powerOnDelayTimePlaceholder: '请输入延迟（最大）时间'
+    },
+    powerCappingConfig: {
+      powerCappingConfigTitle: '用电控制',
+      powerEnable: '功耗限定启用',
+      powerDisable: '功耗限定停用',
+      powerLimit: '最大功耗限制（瓦特）',
+      powerLimitPlaceholder: '请输入最大功耗限制',
+      powerConsumLimit: '功耗限制冗余（瓦特）',
+      powerConsumLimitPlaceholder: '请输入功耗限制冗余',
+      currentTotalPower: '当前总功耗（瓦特）',
+      powerLimitState: '功耗限制状态'
     }
   }
 }

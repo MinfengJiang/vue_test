@@ -111,6 +111,7 @@ export default {
     position: absolute;
     height: 100%;
     width: 100%;
+    overflow: auto;
   }
 .infoBox {
   padding: 15px 0 10px 18px;
