@@ -1004,6 +1004,23 @@ export default {
       validatePassAgain: '请再次输入密码',
       validatePassInconsistent: '两次输入密码不一致!',
       validatePassLenght: '长度在 8 到 16 个字符'
+    },
+    sessionManageConfig: {
+      sessionManageConfigTitle: '会话管理',
+      ID: 'ID',
+      type: '类型',
+      IP: 'IP',
+      userName: '用户名',
+      time: '时间',
+      action: '操作',
+      delete: '删除',
+      comfirmMsg: '此操作将删除用户会话, 是否继续?',
+      comfirmTitle: '提示',
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      successMsg: '删除成功!',
+      errorMsg: '删除失败!',
+      cancelMsg: '已取消删除'
     }
   }
 }

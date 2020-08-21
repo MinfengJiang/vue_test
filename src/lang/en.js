@@ -1006,6 +1006,23 @@ export default {
       validatePassAgain: 'Please enter the password again',
       validatePassInconsistent: 'The two passwords are inconsistent!',
       validatePassLenght: 'Length should be 8 to 16'
+    },
+    sessionManageConfig: {
+      sessionManageConfigTitle: 'Session Manage',
+      ID: 'ID',
+      type: 'Type',
+      IP: 'IP',
+      userName: 'User Name',
+      time: 'Time',
+      action: 'Action',
+      delete: 'Delete',
+      comfirmMsg: 'This will delete user session. Continue?',
+      comfirmTitle: 'Warning',
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel',
+      successMsg: 'Delete completed!',
+      errorMsg: 'Delete failed!',
+      cancelMsg: 'Delete canceled'
     }
   }
 }

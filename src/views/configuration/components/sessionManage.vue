@@ -3,44 +3,28 @@
     <el-row>
       <div class="infoBox">
         <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle') }}</span>
+          <span>{{ $t('configuration.sessionManageConfig.sessionManageConfigTitle') }}</span>
         </div>
-        <el-table :data="newObj.list0" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
+        <el-table :data="list" style="width: 100%;padding-top: 10px;">
+          <el-table-column type="index" :label="$t('configuration.sessionManageConfig.ID')" min-width="60px" />
+          <el-table-column :label="$t('configuration.sessionManageConfig.type')" min-width="80px">
+            <template slot-scope="scope">{{ scope.row.SessionType }}</template>
           </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
+          <el-table-column :label="$t('configuration.sessionManageConfig.IP')" align="center" header-align="center">
+            <template slot-scope="scope">{{ scope.row.Client_IP }}</template>
           </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle2') }}</span>
-        </div>
-        <el-table :data="newObj.list1" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
+          <el-table-column :label="$t('configuration.sessionManageConfig.userName')" align="center" header-align="center">
+            <template slot-scope="scope">{{ scope.row.UserName }}</template>
           </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle2')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
+          <el-table-column :label="$t('configuration.sessionManageConfig.time')" align="center" header-align="center" min-width="200px">
+            <template slot-scope="scope">{{ scope.row.LastActiveTime }}</template>
           </el-table-column>
-        </el-table>
-      </div>
-    </el-row>
-    <el-row>
-      <div class="infoBox">
-        <div class="infoBoxHeader">
-          <span>{{ $t('fruInfo.sysFruTitle3') }}</span>
-        </div>
-        <el-table :data="newObj.list2" style="width: 100%;padding-top: 10px;">
-          <el-table-column :label="$t('fruInfo.tableTitle')" min-width="200">
-            <template slot-scope="scope">{{ $t(`fruInfo.${scope.row.Title}`) }}</template>
-          </el-table-column>
-          <el-table-column :label="$t('fruInfo.sysFruTitle3')" min-width="200">
-            <template slot-scope="scope">{{ scope.row.value }}</template>
+          <el-table-column :label="$t('configuration.sessionManageConfig.action')" align="center" header-align="center" min-width="120px">
+            <template slot-scope="scope">
+              <div>
+                <el-button type="danger" size="mini" @click="deleteSessionHandle(scope.row)">{{ $t('configuration.sessionManageConfig.delete') }}</el-button>
+              </div>
+            </template>
           </el-table-column>
         </el-table>
       </div>
@@ -52,54 +36,53 @@
 export default {
   data() {
     return {
-      newObj: {
-        list0: [],
-        list1: [],
-        list2: []
-      },
       list: [
         {
-          Title: 'Chassis Information',
-          ChassisType: 17,
-          ChassisSerial: '123456789012345678901234567890'
+          'SessionIndex': 1234,
+          'SessionType': 'kvm',
+          'Client_IP': '192.168.100.40',
+          'UserName': 'ADMIN',
+          'LastActiveTime': 'Thu Jan 1 00:12:14 1970'
         },
         {
-          Title: 'Board Information',
-          BoardMfgDate: '02/10/2007 23:31:00',
-          BoardMfg: 'Lenovo',
-          BoardProduct: 'System Board',
-          BoardSerial: '123456789000000000000000000000',
-          BoardPartNumber: '123456789059000000309889b63098'
+          'SessionIndex': 2686,
+          'SessionType': 'web',
+          'Client_IP': '192.168.100.40',
+          'UserName': 'ADMIN',
+          'LastActiveTime': 'Thu Jan 1 00:12:14 1970'
         },
         {
-          Title: 'Product Information',
-          ProductManufacturer: 'Lenovo',
-          ProductName: 'Lenovo Jintide',
-          ProductPartNumber: '333333333333313336333433363335',
-          ProductSerial: '123456789012345678901234567890',
-          ProductAssetTag: '33333364653634363533333333333333'
+          'SessionIndex': 2548,
+          'SessionType': 'ssh',
+          'Client_IP': '192.168.100.40',
+          'UserName': 'BBB',
+          'LastActiveTime': 'Thu Jan 1 00:12:14 1970'
         }
       ]
     }
   },
+  computed: {
+  },
   mounted() {
-    this.getList()
   },
   methods: {
-    getList() {
-      for (var i = 0; i < this.list.length; i++) {
-        const arr = []
-        for (var k in this.list[i]) {
-          if (k !== 'Title') {
-            const obj = {}
-            obj.Title = k
-            obj.value = this.list[i][k]
-            arr.push(obj)
-          }
-        }
-        const name = `list${i}`
-        this.newObj[name] = arr
-      }
+    deleteSessionHandle(value) {
+      console.log(2223333, value.SessionIndex)
+      this.$confirm(this.$t('configuration.sessionManageConfig.comfirmMsg'), this.$t('configuration.sessionManageConfig.comfirmTitle'), {
+        confirmButtonText: this.$t('configuration.sessionManageConfig.confirmButtonText'),
+        cancelButtonText: this.$t('configuration.sessionManageConfig.cancelButtonText'),
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: this.$t('configuration.sessionManageConfig.successMsg')
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: this.$t('configuration.sessionManageConfig.cancelMsg')
+        })
+      })
     }
   }
 }
@@ -115,9 +98,11 @@ export default {
     padding: 0;
   }
 }
-.el-row {
-  margin-bottom: 30px;
-  background-color: rgb(240, 242, 245);
+.app-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 .infoBox {
   padding: 15px;
@@ -130,5 +115,42 @@ export default {
     font-size: 20px;
     font-weight: 600;
   }
+}
+::v-deep {
+  .el-dialog {
+    margin-bottom: 10vh;
+    margin-top: 5vh !important;
+  }
+  .el-dialog__header {
+    margin-left: 15px;
+    // padding: 15px 20px 0 20px;
+    font-weight: 600;
+  }
+  .el-dialog__body {
+    padding: 0 20px;
+  }
+  .el-dialog__footer {
+    padding-top: 0;
+    text-align: center;
+  }
+  .el-form-item__label {
+    padding-right: 25px;
+  }
+  .el-input {
+    max-width: 250px;
+    // min-width: 200px !important;
+  }
+  // Style adjustment when the default input is number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
+  }
+  .el-select {
+    width: 100%;
+  }
+}
+.userIdStyle {
+  // font-size: 16px;
+  font-weight: 700;
 }
 </style>
