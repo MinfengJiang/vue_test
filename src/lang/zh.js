@@ -1050,6 +1050,20 @@ export default {
       validateIPErr: '请输入合法的 IP',
       validateIPErr2: 'IP不能相同',
       validateMacAddrErr: '请输入正确的 MAC 地址'
+    },
+    bootOptionSettingConfig: {
+      bootOptionSettingConfigTitle: '启动选项设置',
+      bootType: '启动类型',
+      timeliness: '时效性',
+      bootOption: '启动选项',
+      nextStartup: '仅用于下次启动',
+      allStartup: '应用于所有启动',
+      none: '无',
+      pxe: '从PXE启动',
+      hardDrive: '从硬盘启动',
+      cd: '从CD / DVD启动',
+      bios: '启动时进入 BIOS 设置',
+      media: '从软盘 / 可移动媒体启动'
     }
   }
 }

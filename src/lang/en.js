@@ -1052,6 +1052,20 @@ export default {
       validateIPErr: 'Please enter a legal IP',
       validateIPErr2: 'IP cannot be the same',
       validateMacAddrErr: 'Please enter the correct Mac address'
+    },
+    bootOptionSettingConfig: {
+      bootOptionSettingConfigTitle: 'Boot Option Setting',
+      bootType: 'Boot Type',
+      timeliness: 'Timeliness',
+      bootOption: 'Boot Options',
+      nextStartup: 'Only for next startup',
+      allStartup: 'Apply to all startup',
+      none: 'None',
+      pxe: 'Boot from PXE',
+      hardDrive: 'Boot from Hard-drive',
+      cd: 'Boot from CD / DVD',
+      bios: 'Boot from BIOS Setup',
+      media: 'Boot from Floppy / Removable media'
     }
   }
 }
