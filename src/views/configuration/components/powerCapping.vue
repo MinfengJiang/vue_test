@@ -6,15 +6,18 @@
           <span>{{ $t('configuration.powerCappingConfig.powerCappingConfigTitle') }}</span>
         </div>
         <div class="labelBox">
-          <div class="labelLeft">{{ $t('configuration.powerCappingConfig.powerEnable') }}</div>
+          <div class="labelLeft">{{ $t('configuration.powerCappingConfig.powerCapping') }}</div>
           <div class="labelRight">
-            <el-radio v-model="formData.PowerCappingSwitch" :label="1">{{ '' }}</el-radio>
-          </div>
-        </div>
-        <div class="labelBox">
-          <div class="labelLeft">{{ $t('configuration.powerCappingConfig.powerDisable') }}</div>
-          <div class="labelRight">
-            <el-radio v-model="formData.PowerCappingSwitch" :label="2">{{ '' }}</el-radio>
+            <el-switch
+              v-model="formData.PowerCappingSwitch"
+              :active-value="1"
+              :inactive-value="2"
+              style="display: block"
+              active-color="#6fc596"
+              inactive-color="#ff8080"
+              :active-text="$t('configuration.powerCappingConfig.powerEnable')"
+              :inactive-text="$t('configuration.powerCappingConfig.powerDisable')"
+            />
           </div>
         </div>
         <div class="labelBox">
@@ -156,6 +159,10 @@ export default {
     color: #888;
   }
 }
+.el-switch {
+  display: inline-block !important;
+  margin-left: 30px;
+}
 .submitForm {
   padding: 0 15px 30px 15px;
   background-color: #fff;
@@ -178,6 +185,23 @@ export default {
   }
   .el-input--suffix .el-input__inner {
     padding-right: 75px;
+  }
+  .el-switch__label {
+    font-weight: 600;
+    color: #666;
+    width: 40px;
+  }
+  .el-switch__label.is-active {
+    color: #1890ff;
+  }
+  .el-switch__label--left {
+    margin-right: 0;
+  }
+  .el-switch__core {
+    margin: 0 25px;
+  }
+  .el-switch__label--right {
+    margin-left: 0;
   }
 }
 </style>

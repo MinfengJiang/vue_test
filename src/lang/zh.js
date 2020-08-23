@@ -960,8 +960,9 @@ export default {
     },
     powerCappingConfig: {
       powerCappingConfigTitle: '用电控制',
-      powerEnable: '功耗限定启用',
-      powerDisable: '功耗限定停用',
+      powerCapping: '功耗限定',
+      powerEnable: '启用',
+      powerDisable: '停用',
       powerLimit: '最大功耗限制（瓦特）',
       powerLimitPlaceholder: '请输入最大功耗限制',
       powerConsumLimit: '功耗限制冗余（瓦特）',

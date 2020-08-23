@@ -27,13 +27,13 @@
               <div v-if="scope.row.PolicyEmptyFlag === 0 || scope.row.TimeValidFlag === 0" key="TimeValidFlag0" />
             </template>
           </el-table-column>
-          <el-table-column :label="$t('configuration.ipAccessControlConfig.rule')" width="60px">
+          <el-table-column :label="$t('configuration.ipAccessControlConfig.rule')" width="75px">
             <template slot-scope="scope">
               <div v-if="scope.row.PolicyEmptyFlag === 1 && scope.row.PolicyAction === 1" key="isShown">
-                <span style="color: #67c23a">{{ $t('configuration.ipAccessControlConfig.allow') }}</span>
+                <el-tag type="success">{{ $t('configuration.ipAccessControlConfig.allow') }}</el-tag>
               </div>
               <div v-if="scope.row.PolicyEmptyFlag === 1 && scope.row.PolicyAction === 0" key="isHidden">
-                <span style="color: #f56c6c">{{ $t('configuration.ipAccessControlConfig.deny') }}</span>
+                <el-tag type="danger">{{ $t('configuration.ipAccessControlConfig.deny') }}</el-tag>
               </div>
             </template>
           </el-table-column>

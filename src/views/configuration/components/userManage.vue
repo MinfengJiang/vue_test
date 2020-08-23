@@ -25,13 +25,13 @@
             </template>
             <template v-else />
           </el-table-column>
-          <el-table-column :label="$t('configuration.userManageConfig.userEnable')" align="center" header-align="center" min-width="250px">
+          <el-table-column :label="$t('configuration.userManageConfig.userEnable')" align="center" header-align="center" min-width="200px">
             <template slot-scope="scope">
               <div v-if="scope.row.Status === 0" key="isShown">
-                <span style="color: #67c23a">{{ $t('configuration.userManageConfig.enable') }}</span>
+                <el-tag type="success">{{ $t('configuration.userManageConfig.enable') }}</el-tag>
               </div>
               <div v-else key="isHidden">
-                <span style="color: #f56c6c">{{ $t('configuration.userManageConfig.disable') }}</span>
+                <el-tag type="danger">{{ $t('configuration.userManageConfig.disable') }}</el-tag>
               </div>
             </template>
           </el-table-column>
