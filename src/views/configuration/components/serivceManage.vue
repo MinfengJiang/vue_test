@@ -10,9 +10,9 @@
           <el-table-column :label="$t('configuration.serivceManageConfig.service')" align="center" header-align="center" width="100px">
             <template slot-scope="scope">
               <div>
-                <div v-if="scope.row.ServiceType === 0">{{ $t('configuration.serivceManageConfig.webService') }}</div>
-                <div v-else-if="scope.row.ServiceType === 1">{{ $t('configuration.serivceManageConfig.kvmService') }}</div>
-                <div v-else-if="scope.row.ServiceType === 2">{{ $t('configuration.serivceManageConfig.sshService') }}</div>
+                <div v-if="scope.row.ServiceType === 0" key="ServiceType0">{{ $t('configuration.serivceManageConfig.webService') }}</div>
+                <div v-else-if="scope.row.ServiceType === 1" key="ServiceType1">{{ $t('configuration.serivceManageConfig.kvmService') }}</div>
+                <div v-else-if="scope.row.ServiceType === 2" key="ServiceType2">{{ $t('configuration.serivceManageConfig.sshService') }}</div>
               </div>
             </template>
           </el-table-column>
@@ -24,14 +24,14 @@
           </el-table-column>
           <el-table-column :label="$t('configuration.serivceManageConfig.serviceSecurityPort')" align="center" header-align="center" min-width="170px">
             <template slot-scope="scope">
-              <div v-if="scope.row.ServiceSecurityPort === 65535">NA</div>
-              <div v-else>{{ scope.row.ServiceSecurityPort }}</div>
+              <div v-if="scope.row.ServiceSecurityPort === 65535" key="PortNA">NA</div>
+              <div v-else key="Port">{{ scope.row.ServiceSecurityPort }}</div>
             </template>
           </el-table-column>
           <el-table-column :label="$t('configuration.serivceManageConfig.serviceUnSecurePort')" align="center" header-align="center" min-width="190px">
             <template slot-scope="scope">
-              <div v-if="scope.row.ServiceNonSecurityPort === 65535">NA</div>
-              <div v-else>{{ scope.row.ServiceNonSecurityPort }}</div>
+              <div v-if="scope.row.ServiceNonSecurityPort === 65535" key="PortNA2">NA</div>
+              <div v-else key="Port2">{{ scope.row.ServiceNonSecurityPort }}</div>
             </template>
           </el-table-column>
           <el-table-column :label="$t('configuration.serivceManageConfig.action')" align="center" header-align="center" min-width="100px">
@@ -48,9 +48,9 @@
       <el-form ref="ruleForm" :model="formData" :rules="formRules" :label-width="`${formLabelWidth}px`">
         <el-form-item :label="$t('configuration.serivceManageConfig.service')">
           <div class="userIdStyle">
-            <div v-if="formData.Service_Type === 0">{{ $t('configuration.serivceManageConfig.webService') }}</div>
-            <div v-else-if="formData.Service_Type === 1">{{ $t('configuration.serivceManageConfig.kvmService') }}</div>
-            <div v-else-if="formData.Service_Type === 2">{{ $t('configuration.serivceManageConfig.sshService') }}</div>
+            <div v-if="formData.Service_Type === 0" key="Type0">{{ $t('configuration.serivceManageConfig.webService') }}</div>
+            <div v-else-if="formData.Service_Type === 1" key="Type1">{{ $t('configuration.serivceManageConfig.kvmService') }}</div>
+            <div v-else-if="formData.Service_Type === 2" key="Type2">{{ $t('configuration.serivceManageConfig.sshService') }}</div>
           </div>
         </el-form-item>
         <el-form-item>

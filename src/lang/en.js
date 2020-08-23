@@ -1023,6 +1023,35 @@ export default {
       successMsg: 'Delete completed!',
       errorMsg: 'Delete failed!',
       cancelMsg: 'Delete canceled'
+    },
+    ipAccessControlConfig: {
+      ipAccessControlConfigTitle: 'IP Access Control',
+      ID: 'ID',
+      IP: 'IP',
+      MACAddr: 'MAC Addr',
+      dateRange: '日期范围（BMC本地时间）',
+      dateRangeForm: 'Date Range',
+      rule: 'Rule',
+      allow: 'Allow',
+      deny: 'Deny',
+      action: 'Action',
+      add: 'Add',
+      delete: 'Delete',
+      comfirmMsg: 'This will delete session. Continue?',
+      comfirmTitle: 'Warning',
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel',
+      successMsg: 'Delete completed!',
+      errorMsg: 'Delete failed!',
+      cancelMsg: 'Delete canceled',
+      addTitle: 'Add',
+      datePolicy: 'Date Policy',
+      startDate: 'Select start date',
+      endDate: 'Select end date',
+      validateMacAddr: 'IP / Mac must fill in at least one',
+      validateIPErr: 'Please enter a legal IP',
+      validateIPErr2: 'IP cannot be the same',
+      validateMacAddrErr: 'Please enter the correct Mac address'
     }
   }
 }

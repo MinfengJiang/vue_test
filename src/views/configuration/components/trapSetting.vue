@@ -330,8 +330,4 @@ export default {
     padding-right: 75px;
   }
 }
-.userIdStyle {
-  // font-size: 16px;
-  font-weight: 700;
-}
 </style>

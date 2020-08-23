@@ -85,3 +85,21 @@ export function isArray(arg) {
   }
   return Array.isArray(arg)
 }
+
+/**
+ * @param {string} IP
+ * @returns {Boolean}
+ */
+export function validIP(IP) {
+  const reg = /^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$/
+  return reg.test(IP)
+}
+
+/**
+ * @param {string} macAddr
+ * @returns {Boolean}
+ */
+export function validMac(macAddr) {
+  const reg = /([0-9A-F]{2}[::]){5}([0-9A-F]{2})/
+  return reg.test(macAddr)
+}

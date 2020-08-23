@@ -1021,6 +1021,35 @@ export default {
       successMsg: '删除成功!',
       errorMsg: '删除失败!',
       cancelMsg: '已取消删除'
+    },
+    ipAccessControlConfig: {
+      ipAccessControlConfigTitle: 'IP访问控制',
+      ID: 'ID',
+      IP: 'IP',
+      MACAddr: 'MAC地址',
+      dateRange: '日期范围（BMC本地时间）',
+      dateRangeForm: '日期范围',
+      rule: '规则',
+      allow: '允许',
+      deny: '禁止',
+      action: '操作',
+      add: '新增',
+      delete: '删除',
+      comfirmMsg: '此操作将删除该会话, 是否继续?',
+      comfirmTitle: '提示',
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      successMsg: '删除成功!',
+      errorMsg: '删除失败!',
+      cancelMsg: '已取消删除',
+      addTitle: '新增',
+      datePolicy: 'Date 政策',
+      startDate: '请选择开始日期',
+      endDate: '请选择结束日期',
+      validateMacAddr: 'IP / Mac 最少必须填一项',
+      validateIPErr: '请输入合法的 IP',
+      validateIPErr2: 'IP不能相同',
+      validateMacAddrErr: '请输入正确的 MAC 地址'
     }
   }
 }
