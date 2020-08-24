@@ -296,6 +296,27 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/security',
+    component: Layout,
+    redirect: '/security/passwordSecurity',
+    name: 'security',
+    meta: { title: 'security', icon: 'security' },
+    children: [
+      {
+        path: 'passwordSecurity',
+        component: () => import('@/views/security/passwordSecurity'),
+        name: 'passwordSecurityChild',
+        meta: { title: 'passwordSecurityChild', noCache: true }
+      },
+      {
+        path: 'webSecurity',
+        component: () => import('@/views/thermalManage/fanPolicyUpdate'),
+        name: 'webSecurityChild',
+        meta: { title: 'webSecurityChild', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',

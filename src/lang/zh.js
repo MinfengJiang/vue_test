@@ -17,6 +17,9 @@ export default {
     fanPolicyUpdateChild: '风扇策略更新',
     firmwareUpdate: '固件更新',
     download: '下载',
+    security: '固件安全',
+    passwordSecurityChild: '密码安全',
+    webSecurityChild: '网页防暴力破解',
     configuration: '配置',
     documentation: '文档',
     guide: '引导页',
@@ -714,8 +717,8 @@ export default {
     status: '状态',
     speed: '当前转速 (RPM)',
     cycle: '占空比 (%)',
-    success: '正常',
-    error: '异常',
+    success: '正 常',
+    error: '异 常',
     info: '暂时不可用',
     fanTachControlTitle2: '转速控制',
     manual: '手动控制风扇',
@@ -724,7 +727,7 @@ export default {
     speedControl: '转速控制 (%)',
     fanControl: '控制风扇',
     placeholder: '输入20~100',
-    submit: '提交'
+    submit: '提 交'
   },
   fanPolicyUpdate: {
     fanPolicyUpdateTitle: '风扇策略更新',
@@ -1071,5 +1074,28 @@ export default {
   download: {
     downloadTitle: '系统日志',
     downloadBtn: '下载'
+  },
+  security: {
+    passwordSecurity: {
+      passwordSecurityTitle: '密码安全',
+      lenCheck: '长度检查开关',
+      minLength: '最小密码长度',
+      minLengthPlaceholder: '请输入最小密码长度',
+      maxLength: '最大密码长度',
+      maxLengthPlaceholder: '请输入最大密码长度',
+      complexCheck: '复杂度检查开关',
+      passwordComplex: '密码复杂度',
+      complexContent1: '数字/字母/符号至少有一种',
+      complexContent2: '数字/字母/符号至少有两种',
+      complexContent3: '数字/字母/符号至少有三种',
+      tip1: '关闭长度/复杂度检查开关会降低安全等级，建议开启它们',
+      tip2: '最小密码长度小于8会降低安全等级，建议输入8或以上数字',
+      tip3: '密码复杂度选择 <数字/字母/符号至少有一种> 会降低安全等级，建议选择 <数字/字母/符号至少有三种> 等级',
+      tip4: '密码复杂度选择 <数字/字母/符号至少有二种> 会降低安全等级，建议选择 <数字/字母/符号至少有三种> 等级',
+      tip5: '密码安全策略将被修改，请确认是否继续？',
+      tip6: '最小密码长度无效，请检查输入数据。最小密码长度范围: 8~20',
+      tip7: '最大密码长度无效，请检查输入数据。最大密码长度范围: 8~20',
+      comfirmMsg: '此操作将修改密码安全策略, 是否继续?'
+    }
   }
 }

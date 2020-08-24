@@ -17,6 +17,9 @@ export default {
     fanPolicyUpdateChild: 'FSC Policy Update',
     firmwareUpdate: 'Firmware Update',
     download: 'Download',
+    security: 'Firmware Security',
+    passwordSecurityChild: 'Password Security',
+    webSecurityChild: 'WEB Prevent Violent',
     configuration: 'Configuration',
     documentation: 'Documentation',
     guide: 'Guide',
@@ -1073,5 +1076,28 @@ export default {
   download: {
     downloadTitle: 'System Log',
     downloadBtn: 'Download'
+  },
+  security: {
+    passwordSecurity: {
+      passwordSecurityTitle: 'Password Security',
+      lenCheck: 'Len Check',
+      minLength: 'Min Password Length',
+      minLengthPlaceholder: 'Please enter min password length',
+      maxLength: 'Max Password Length',
+      maxLengthPlaceholder: 'Please enter max password length',
+      complexCheck: 'Complex Check',
+      passwordComplex: 'Password Complex',
+      complexContent1: 'At least one kind of Numbers, Letters and Symbols',
+      complexContent2: 'At least two kinds of Numbers, Letters and Symbols',
+      complexContent3: 'At least three kinds of Numbers, Letters and Symbols',
+      tip1: 'Diasble Len/Complex Check will reduce security level, suggest enable them',
+      tip2: 'Min Password Length less than 8 will reduce security level, suggest enter 8 or more',
+      tip3: 'Password Complex choose <At least one kind of Numbers, Letters and Symbols> will reduce security level, suggest choose <At least three kinds of Numbers, Letters and Symbols> level',
+      tip4: 'Password Complex choose <At least two kinds of Numbers, Letters and Symbols> will reduce security level, suggest choose <At least three kinds of Numbers, Letters and Symbols> level',
+      tip5: 'Password security will change, please confirm to continue?',
+      tip6: 'Min Password Length is invalid, please check input parameters. Min Password Length range : 8~20',
+      tip7: 'Max Password Length is invalid, please check input parameters. Max Password Length range: 8~20',
+      comfirmMsg: 'This will change password security. Continue?'
+    }
   }
 }

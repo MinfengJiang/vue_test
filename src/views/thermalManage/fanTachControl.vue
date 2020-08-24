@@ -174,11 +174,13 @@ export default {
   font-weight: 600;
   color: #666;
   span {
-    padding-left: 9px;
-    letter-spacing: 1px;
+    padding-left: 20px;
     i {
-      padding-right: 3px;
+      padding-right: 8px;
     }
+  }
+  span:nth-child(1) {
+    padding-left: 0;
   }
 }
 .radioStyle {
@@ -186,7 +188,6 @@ export default {
   text-align: center;
   .el-radio {
     font-weight: 700 !important;
-    letter-spacing: 1px;
   }
 }
 .el-radio__input.is-checked + .el-radio__label {
@@ -214,7 +215,6 @@ export default {
     padding: 9px 12px 9px 14px;
     font-size: 14px;
     border-radius: 3px;
-    letter-spacing: 2px;
   }
 }
 </style>
