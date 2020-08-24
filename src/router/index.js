@@ -283,6 +283,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/download',
+    component: Layout,
+    redirect: '/download',
+    children: [
+      {
+        path: '/download',
+        component: () => import('@/views/download/index'),
+        name: 'download',
+        meta: { title: 'download', icon: 'download', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',

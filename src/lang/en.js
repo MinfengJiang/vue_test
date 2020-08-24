@@ -16,6 +16,7 @@ export default {
     fanTachControlChild: 'Fan Tach Control',
     fanPolicyUpdateChild: 'FSC Policy Update',
     firmwareUpdate: 'Firmware Update',
+    download: 'Download',
     configuration: 'Configuration',
     documentation: 'Documentation',
     guide: 'Guide',
@@ -1068,5 +1069,9 @@ export default {
       bios: 'Boot from BIOS Setup',
       media: 'Boot from Floppy / Removable media'
     }
+  },
+  download: {
+    downloadTitle: 'System Log',
+    downloadBtn: 'Download'
   }
 }

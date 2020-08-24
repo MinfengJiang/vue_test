@@ -16,6 +16,7 @@ export default {
     fanTachControlChild: '风扇转速控制',
     fanPolicyUpdateChild: '风扇策略更新',
     firmwareUpdate: '固件更新',
+    download: '下载',
     configuration: '配置',
     documentation: '文档',
     guide: '引导页',
@@ -1066,5 +1067,9 @@ export default {
       bios: '启动时进入 BIOS 设置',
       media: '从软盘 / 可移动媒体启动'
     }
+  },
+  download: {
+    downloadTitle: '系统日志',
+    downloadBtn: '下载'
   }
 }
