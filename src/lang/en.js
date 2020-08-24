@@ -1098,6 +1098,19 @@ export default {
       tip6: 'Min Password Length is invalid, please check input parameters. Min Password Length range : 8~20',
       tip7: 'Max Password Length is invalid, please check input parameters. Max Password Length range: 8~20',
       comfirmMsg: 'This will change password security. Continue?'
+    },
+    webSecurity: {
+      webSecurityTitle: 'WEB Prevent Violent',
+      check: 'WEB Prevent Violent',
+      maxError: 'Max Number of Consecutive Errors',
+      maxErrorPlaceholder: 'Please enter max number of consecutive errors',
+      lockTime: 'Lock Time (Sec)',
+      lockTimePlaceholder: 'Please enter lock time',
+      tip1: 'Disable prevent violent will reduce security level, suggest enable it',
+      tip2: 'Prevent violent will change, please confirm whether to continue',
+      tip3: 'Input paremeters are invalid, please check input parameters. Max Number of Consecutive Errors range: 1 ~ 255',
+      tip4: 'Input paremeters are invalid, please check input parameters. Lock Time range: 1 ~ 65535',
+      comfirmMsg: 'This will change prevent violent. Continue?'
     }
   }
 }

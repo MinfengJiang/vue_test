@@ -151,7 +151,6 @@ export default {
         }).then(() => {
           this.$message({
             type: 'success',
-            duration: '1000',
             message: this.$t('configuration.timeSettingConfig.successMsg')
           })
         //   console.log(this.formData)

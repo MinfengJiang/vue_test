@@ -310,7 +310,7 @@ export const constantRoutes = [
       },
       {
         path: 'webSecurity',
-        component: () => import('@/views/thermalManage/fanPolicyUpdate'),
+        component: () => import('@/views/security/webSecurity'),
         name: 'webSecurityChild',
         meta: { title: 'webSecurityChild', noCache: true }
       }
